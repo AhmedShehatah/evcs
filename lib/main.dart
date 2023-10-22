@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'app/app.dart';
+import 'core/di/di_manager.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Future.wait([
+    DIManager.initDI(),
+  ]);
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      home: Placeholder(),
-    );
-  }
+  runApp(const App());
 }

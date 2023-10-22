@@ -1,5 +1,6 @@
 // ignore_for_file: unused_element
 
+import '../../app/cubit/application_bloc.dart';
 import '../constants/app_colors.dart';
 import '../navigator/app_navigator.dart';
 import '../network/network_module.dart';
@@ -12,9 +13,12 @@ final getIt = GetIt.instance;
 class DIManager {
   DIManager._();
   static Future<void> initDI() async {
+    /// -------------- Setup -------------------
     await _setupSharedPreference();
-
     _injectDep(NetworkModule.provideDio());
+    _injectDep(ApplicationCubit());
+    _injectDep(AppNavigator());
+    _injectDep(AppColorsController());
   }
 
   static T findDep<T extends Object>() {
@@ -37,5 +41,13 @@ class DIManager {
   static _setupSharedPreference() async {
     await GetStorage.init();
     _injectDep(SharedPrefs());
+  }
+
+  static ApplicationCubit findAC() {
+    return findDep<ApplicationCubit>();
+  }
+
+  static dispose() {
+    findAC().close();
   }
 }
