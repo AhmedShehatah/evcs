@@ -3,11 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constants/app_consts.dart';
-
 import '../../../core/di/di_manager.dart';
-
 import '../../../core/shared_prefs/shared_prefs.dart';
-
 import 'application_state.dart';
 
 class ApplicationCubit extends Cubit<ApplicationState> {

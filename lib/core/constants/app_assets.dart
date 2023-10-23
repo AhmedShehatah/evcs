@@ -6,4 +6,6 @@ class AppAssets {
   static String media_placeholder = "";
   static String general_placeholder_image = "";
   static String general_error_image = "";
+
+  static String onboarding_image = "assets/images/onboarding.png";
 }

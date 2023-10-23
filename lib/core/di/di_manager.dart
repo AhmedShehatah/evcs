@@ -1,12 +1,13 @@
 // ignore_for_file: unused_element
 
+import 'package:get_it/get_it.dart';
+import 'package:get_storage/get_storage.dart';
+
 import '../../app/cubit/application_bloc.dart';
 import '../constants/app_colors.dart';
 import '../navigator/app_navigator.dart';
 import '../network/network_module.dart';
 import '../shared_prefs/shared_prefs.dart';
-import 'package:get_it/get_it.dart';
-import 'package:get_storage/get_storage.dart';
 
 final getIt = GetIt.instance;
 
