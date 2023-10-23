@@ -1,1 +1,1 @@
-Map<String, String> ar = {};
+Map<String, String> ar = {'done': 'تم'};

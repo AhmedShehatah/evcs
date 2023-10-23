@@ -1,8 +1,7 @@
 import 'dart:ui';
 
-import 'base_states.dart';
-
 import '../../../core/errors/base_error.dart';
+import 'base_states.dart';
 
 class BaseFailState extends BaseState {
   final BaseError? error;

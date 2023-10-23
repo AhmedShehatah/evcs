@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:evcs/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -30,6 +31,8 @@ class RouteGenerator {
 
   static Widget getPage(RouteSettings settings, args) {
     switch (settings.name) {
+      case OnBoardingScreen.routeName:
+        return const OnBoardingScreen();
       default:
         settings = RouteSettings(
             arguments: settings.arguments, name: DefaultRoute.routeName);

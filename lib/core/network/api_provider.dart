@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'http_method.dart';
 
 import '../../../core/di/di_manager.dart';
 import '../../../core/errors/base_error.dart';
@@ -12,8 +11,8 @@ import '../../../core/errors/not_found_error.dart';
 import '../../../core/errors/time_out_error.dart';
 import '../../../core/errors/unauthorized_error.dart';
 import '../../../core/errors/unexpected_error.dart';
-
 import '../../../core/results/result.dart';
+import 'http_method.dart';
 
 class ApiProvider {
   static Future<Result<T>> download<T>({

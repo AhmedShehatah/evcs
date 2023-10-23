@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:evcs/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +12,6 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_consts.dart';
 import '../../core/constants/app_font.dart';
 import '../../core/constants/app_style.dart';
-
 import '../../core/di/di_manager.dart';
 import '../../core/localization/translations.dart';
 import '../../core/navigator/route_generator.dart';
@@ -63,7 +63,9 @@ class _AppState extends State<App> {
                     debugShowCheckedModeBanner: false,
                     builder: (BuildContext context, Widget? widget) {
                       ScreenHelper(context);
-                      return const Placeholder();
+                      return Container(
+                        child: widget,
+                      );
                     },
                     theme: ThemeData(
                       textTheme:
@@ -84,13 +86,11 @@ class _AppState extends State<App> {
                         style: TextButton.styleFrom(
                           foregroundColor:
                               DIManager.findDep<AppColorsController>()
-                                  .textButtonBackground,
+                                  .primaryColor,
                           padding: EdgeInsets.zero,
                         ),
                       ),
-                      // colorScheme: ColorScheme(
-                      //     background: DIManager.findDep<AppColorsController>()
-                      //         .scaffoldBGColor),
+                      colorScheme: const ColorScheme.light(),
                     ),
                     title: AppConsts.appName,
 
@@ -108,7 +108,7 @@ class _AppState extends State<App> {
                       // Built-in localization of basic text for Cupertino widgets
                       GlobalCupertinoLocalizations.delegate,
                     ],
-                    // initialRoute: SplashPage.routeName,
+                    initialRoute: OnBoardingScreen.routeName,
                   );
                 });
           },
