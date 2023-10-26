@@ -79,7 +79,7 @@ class AppStyle {
               : DIManager.findCC().greyTextColor),
       alignLabelWithHint: true,
       filled: true,
-      fillColor: Colors.white,
+      fillColor: DIManager.findCC().formFieldBackgroundColor,
       suffixIcon: obscuring != null
           ? IconButton(
               icon: Icon(
@@ -91,23 +91,23 @@ class AppStyle {
                 onObscurePressed!();
               })
           : suffixIcon,
-      // border: OutlineInputBorder(
-      //     borderRadius: BorderRadius.circular(Dimens.bigBorderRadius)),
+      border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(Dimens.textFormBorder)),
       focusColor: DIManager.findCC().borderTextFieldColor,
       focusedBorder: OutlineInputBorder(
-        //borderRadius: BorderRadius.circular(Dimens.bigBorderRadius),
+        borderRadius: BorderRadius.circular(Dimens.textFormBorder),
         borderSide: BorderSide(
-            color: DIManager.findCC().borderTextFieldColor, width: 1.w),
+            color: DIManager.findCC().borderTextFieldColor, width: 0.w),
       ),
       enabledBorder: OutlineInputBorder(
-        //borderRadius: BorderRadius.circular(Dimens.bigBorderRadius),
+        borderRadius: BorderRadius.circular(Dimens.textFormBorder),
         borderSide: BorderSide(
-            width: 1.w, color: DIManager.findCC().borderTextFieldColor),
+            width: 0.w, color: DIManager.findCC().borderTextFieldColor),
       ),
       disabledBorder: OutlineInputBorder(
-        //  borderRadius: BorderRadius.circular(Dimens.bigBorderRadius),
+        borderRadius: BorderRadius.circular(Dimens.textFormBorder),
         borderSide: BorderSide(
-            width: 1.w, color: DIManager.findCC().borderTextFieldColor),
+            width: 0.w, color: DIManager.findCC().borderTextFieldColor),
       ),
     );
   }
@@ -254,7 +254,11 @@ class AppStyle {
     fontWeight: AppFontWeight.light,
     color: DIManager.findCC().greyTextColor,
   );
-
+  static TextStyle lightTitleStyle = TextStyle(
+    fontSize: AppFontSize.fontSize_12,
+    fontWeight: AppFontWeight.light,
+    color: DIManager.findCC().hintTextColor,
+  );
   // 12
   static TextStyle get defaultStyle => TextStyle(
         fontSize: AppFontSize.fontSize_12,
@@ -275,6 +279,7 @@ class AppStyle {
   static TextStyle bigTitleStyle = TextStyle(
     fontSize: AppFontSize.fontSize_18,
     color: DIManager.findCC().darkGreyTextColor,
+    fontWeight: FontWeight.bold,
   );
 
   // 14
