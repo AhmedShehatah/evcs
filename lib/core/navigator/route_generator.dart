@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +34,8 @@ class RouteGenerator {
     switch (settings.name) {
       case OnBoardingScreen.routeName:
         return const OnBoardingScreen();
+      case LoginScreen.routeName:
+        return LoginScreen();
       default:
         settings = RouteSettings(
             arguments: settings.arguments, name: DefaultRoute.routeName);
