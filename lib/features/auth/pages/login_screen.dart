@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
               autovalidateMode: _autoValidateMode,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
+                // mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const VerticalPadding(10),
