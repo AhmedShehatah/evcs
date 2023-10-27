@@ -6,26 +6,27 @@ import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
 import 'package:evcs/core/validators/email_validator.dart';
 import 'package:evcs/core/validators/min_length_validator.dart';
-import 'package:evcs/features/auth/pages/register_screen.dart';
+import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/auth/widgets/auth_title.dart';
-import 'package:evcs/features/auth/widgets/forgot_password.dart';
 import 'package:evcs/features/auth/widgets/or_widget.dart';
 import 'package:evcs/features/auth/widgets/switch_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const String routeName = '/login-screen';
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  static const String routeName = '/register-screen';
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final phoneNumberController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   AutovalidateMode _autoValidateMode = AutovalidateMode.disabled;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -42,8 +43,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const VerticalPadding(10),
-                  const AuthTitle(title: 'sign in'),
-                  const VerticalPadding(12),
+                  const AuthTitle(title: 'sign up'),
+                  const VerticalPadding(10),
                   CustomFormField(
                     hasAboveTitle: true,
                     controller: emailController,
@@ -56,6 +57,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   const VerticalPadding(5),
                   CustomFormField(
                     hasAboveTitle: true,
+                    controller: phoneNumberController,
+                    hint: 'Enter Your Phone Number',
+                    iconPath: CustomIcons.userIcon,
+                    title: 'Phone Number',
+                    textInputType: TextInputType.phone,
+                  ),
+                  const VerticalPadding(5),
+                  CustomFormField(
+                    hasAboveTitle: true,
                     controller: passwordController,
                     isSecure: true,
                     hint: 'Enter Your Password',
@@ -63,8 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     validator: MinLengthValidator(minLength: 8),
                     title: 'Password',
                   ),
-                  const VerticalPadding(2),
-                  const ForogotPassword(),
                   const VerticalPadding(5),
                   AppDefaultButton(
                     onPress: () {
@@ -73,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                       formKey.currentState!.validate();
                     },
-                    title: 'Sign in',
+                    title: 'Sign Up',
                     iconPath: CustomIcons.pinInRectIcon,
                   ),
                   const VerticalPadding(5),
@@ -81,12 +89,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   const VerticalPadding(3),
                   SwitchAuth(
                     onPress: () {
-                      DIManager.findNavigator()
-                          .offAll(RegisterScreen.routeName);
+                      DIManager.findNavigator().offAll(LoginScreen.routeName);
                     },
-                    title: 'Sign Up',
-                    desc: "Don't have an Account?",
-                  )
+                    title: 'Sign In',
+                    desc: "Already have an account?",
+                  ),
+                  const VerticalPadding(10),
                 ],
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:evcs/features/auth/pages/login_screen.dart';
+import 'package:evcs/features/auth/pages/register_screen.dart';
 import 'package:evcs/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class RouteGenerator {
           animation: animation,
           fillColor: Colors.white,
           secondaryAnimation: secondaryAnimation,
-          transitionType: SharedAxisTransitionType.scaled,
+          transitionType: SharedAxisTransitionType.horizontal,
           child: child,
         );
       },
@@ -35,7 +36,9 @@ class RouteGenerator {
       case OnBoardingScreen.routeName:
         return const OnBoardingScreen();
       case LoginScreen.routeName:
-        return LoginScreen();
+        return const LoginScreen();
+      case RegisterScreen.routeName:
+        return const RegisterScreen();
       default:
         settings = RouteSettings(
             arguments: settings.arguments, name: DefaultRoute.routeName);
