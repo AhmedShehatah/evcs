@@ -10,7 +10,7 @@ class AuthTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      translate('sign in').toCapitalized(),
+      translate(title).toCapitalized(),
       style: AppStyle.bigTitleStyle,
     );
   }
