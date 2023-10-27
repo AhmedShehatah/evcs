@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class AppColorsController {
+  AppColorsController();
+
+  final Rx<Color?> _primaryColor = const Color(0xFF66AD28).obs;
+  final String _primaryColorStr = "#66AD28";
+
+  Color get primaryColor => _primaryColor.value ?? defaultPrimaryColor;
+
+  String get primaryColorStr => _primaryColorStr;
+
+  final defaultPrimaryColor = const Color(0xFF66AD28);
+  Color black = Colors.black;
+  Color bottomSheetShadow = const Color(0xFF000019);
+  Color greyTextColor = const Color(0xFF505050);
+
+  Color hintTextColor = const Color(0xFF646464);
+  Color greyLightTextColor = const Color(0xFFA6A6A6);
+  Color navyBlue = const Color(0xAA033B44);
+  Color scaffoldBGColor = Colors.white;
+
+  Color linkBlue = const Color(0xff2072FF);
+
+  Color borderTextFieldColor = Colors.grey.withOpacity(0.3);
+  Color borderButtonColor = Colors.grey.withOpacity(0.5);
+
+  Color textButtonBackground = const Color(0x00000000);
+
+  Color priorityColor = const Color(0xFF8DCA26);
+
+  Color darkGreyTextColor = const Color(0xFF484747);
+
+  Color notSelectedGrey = const Color(0xFF7A8FA6);
+  Color white = Colors.white;
+  Color formFieldBackgroundColor = const Color(0xFFE9E9E9);
+}
