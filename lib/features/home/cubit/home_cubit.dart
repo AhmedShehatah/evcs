@@ -1,3 +1,5 @@
+import 'package:evcs/core/design/loading_widgets/custom_loading.dart';
+import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/states/base_fail_state.dart';
 import 'package:evcs/core/states/base_success_state.dart';
 import 'package:evcs/core/states/base_wait_state.dart';
@@ -13,12 +15,15 @@ class HomeCubit extends Cubit<HomeState> {
   late LatLng currentLocation;
 
   void getCurrentLocation() {
+    DIManager.findAC().showLoading();
     emit(state.copyWith(cuurentLocationState: const BaseLoadingState()));
     AppLocation().determinePosition().then((location) {
       currentLocation = location;
+      DIManager.findAC().hideLoading();
       emit(state.copyWith(cuurentLocationState: const BaseSuccessState()));
     }).onError((error, stackTrace) {
       emit(state.copyWith(cuurentLocationState: const BaseFailState()));
+      DIManager.findAC().hideLoading();
       CustomSnackbar.showSnackbar(error.toString());
     });
   }

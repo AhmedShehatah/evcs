@@ -32,6 +32,7 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   intl: ^0.18.1
   introduction_screen: ^3.1.12
+  lottie: ^2.7.0
   package_info_plus: ^4.2.0
   rxdart: ^0.27.7
   shimmer: ^3.0.0
@@ -47,6 +48,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/gifs/
   #   - images/a_dot_ham.jpeg
   # example:
   # fonts:

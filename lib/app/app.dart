@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:evcs/core/design/root/root_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _AppState extends State<App> {
                     debugShowCheckedModeBanner: false,
                     builder: (BuildContext context, Widget? widget) {
                       ScreenHelper(context);
-                      return Container(
+                      return RootScreen(
                         child: widget,
                       );
                     },

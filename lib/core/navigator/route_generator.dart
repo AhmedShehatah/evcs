@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:evcs/core/design/loading_widgets/custom_loading.dart';
 import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/auth/pages/register_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
@@ -42,6 +43,7 @@ class RouteGenerator {
         return const RegisterScreen();
       case HomeScreen.routeName:
         return const HomeScreen();
+
       default:
         settings = RouteSettings(
             arguments: settings.arguments, name: DefaultRoute.routeName);

@@ -9,4 +9,6 @@ class AppAssets {
 
   static String onboarding_image = "assets/images/onboarding.png";
   static String map_marker = "assets/images/marker.png";
+
+  static String loading = "assets/gifs/loading.json";
 }
