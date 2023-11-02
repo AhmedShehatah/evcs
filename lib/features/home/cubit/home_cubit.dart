@@ -1,4 +1,3 @@
-import 'package:evcs/core/design/loading_widgets/custom_loading.dart';
 import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/states/base_fail_state.dart';
 import 'package:evcs/core/states/base_success_state.dart';
@@ -12,13 +11,15 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeState.initState());
 
+  Marker marker = const Marker(markerId: MarkerId('marker'));
   late LatLng currentLocation;
-
   void getCurrentLocation() {
     DIManager.findAC().showLoading();
     emit(state.copyWith(cuurentLocationState: const BaseLoadingState()));
     AppLocation().determinePosition().then((location) {
       currentLocation = location;
+      marker = Marker(markerId: const MarkerId('marker'), position: location);
+
       DIManager.findAC().hideLoading();
       emit(state.copyWith(cuurentLocationState: const BaseSuccessState()));
     }).onError((error, stackTrace) {

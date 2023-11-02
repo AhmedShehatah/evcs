@@ -1,7 +1,13 @@
+import 'package:evcs/core/constants/dimens.dart';
+// import 'package:evcs/core/design/bottom_sheet/custom_bottom_sheet.dart';
+import 'package:evcs/core/design/buttons/app_default_button.dart';
 import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/features/home/cubit/home_cubit.dart';
+import 'package:evcs/features/home/widgets/book_sheet.dart';
 import 'package:evcs/features/home/widgets/map_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/utils/ui/bottom_sheet/custom_bottom_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/home-screen";
@@ -20,22 +26,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Stack(
           children: [
-            MapWidget(),
-            // Align(
-            //   // top: ScreenHelper.fromHeight(25),
-            //   // left: ScreenHelper.fromWidth(43),
-            //   // right: ScreenHelper.width / 2,
-            //   child: Image.asset(AppAssets.map_marker),
-            // ),
-            // if (!_isHoldingScreen)
-            //   const Align(
-            //     alignment: Alignment.bottomCenter,
-            //     child: CustomBottomSheet(),
-            //   )
+            const MapWidget(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: Dimens.cardInternalPadding,
+                child: AppDefaultButton(
+                    onPress: () {
+                      CustomBottomSheet.showBottomSheet(const BookSheet());
+                    },
+                    title: 'Done'),
+              ),
+            ),
           ],
         ),
       ),

@@ -281,6 +281,26 @@ class AppStyle {
     color: DIManager.findCC().darkGreyTextColor,
     fontWeight: FontWeight.bold,
   );
+  static TextStyle title5Style = TextStyle(
+    fontSize: AppFontSize.fontSize_16,
+    color: DIManager.findCC().darkGreyTextColor,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle title4Style = TextStyle(
+    fontSize: AppFontSize.fontSize_14,
+    color: DIManager.findCC().darkGreyTextColor,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle title3Style = TextStyle(
+    fontSize: AppFontSize.fontSize_12,
+    color: DIManager.findCC().darkGreyTextColor,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle title2Style = TextStyle(
+    fontSize: AppFontSize.fontSize_10,
+    color: DIManager.findCC().darkGreyTextColor,
+    fontWeight: FontWeight.bold,
+  );
 
   // 14
   static TextStyle smallTitleStyle = TextStyle(

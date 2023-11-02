@@ -11,4 +11,6 @@ class AppAssets {
   static String map_marker = "assets/images/marker.png";
 
   static String loading = "assets/gifs/loading.json";
+  static String car_placeholder = "assets/images/car_placeholder.png";
+  static String grey_add = "assets/images/grey_add.png";
 }

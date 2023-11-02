@@ -40,10 +40,17 @@ class _MapWidgetState extends State<MapWidget> {
               zoom: 15,
             ),
             compassEnabled: true,
-            zoomControlsEnabled: true,
             buildingsEnabled: true,
+            zoomControlsEnabled: false,
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
+            },
+            markers: {DIManager.findDep<HomeCubit>().marker},
+            onCameraMove: (pos) {
+              setState(() {
+                DIManager.findDep<HomeCubit>().marker = Marker(
+                    markerId: const MarkerId('marker'), position: pos.target);
+              });
             },
           );
         } else {

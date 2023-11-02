@@ -11,22 +11,24 @@ class RootScreen extends StatelessWidget {
   final Widget? child;
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        child!,
-        BlocBuilder<ApplicationCubit, ApplicationState>(
-          buildWhen: (o, n) => o.loadingState != n.loadingState,
-          bloc: DIManager.findAC(),
-          builder: (context, state) {
-            var loadingState = state.loadingState;
-            if (loadingState is BaseLoadingState) {
-              return const CustomLoading();
-            } else {
-              return const SizedBox();
-            }
-          },
-        ),
-      ],
+    return Scaffold(
+      body: Stack(
+        children: [
+          child!,
+          BlocBuilder<ApplicationCubit, ApplicationState>(
+            buildWhen: (o, n) => o.loadingState != n.loadingState,
+            bloc: DIManager.findAC(),
+            builder: (context, state) {
+              var loadingState = state.loadingState;
+              if (loadingState is BaseLoadingState) {
+                return const CustomLoading();
+              } else {
+                return const SizedBox();
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 }

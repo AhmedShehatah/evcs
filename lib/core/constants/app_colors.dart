@@ -15,6 +15,7 @@ class AppColorsController {
   Color black = Colors.black;
   Color bottomSheetShadow = const Color(0xFF000019);
   Color greyTextColor = const Color(0xFF505050);
+  Color lightGreyColor = const Color(0xFF757575);
 
   Color hintTextColor = const Color(0xFF646464);
   Color greyLightTextColor = const Color(0xFFA6A6A6);
