@@ -24,6 +24,7 @@ class Dimens {
 
   static double iconSize = 15.w;
   static double bigIconSize = 20.w;
+
   static double cardImageWidth = 40.w;
   static double cardImageHeight = 40.h;
   static final sheetHeaderPadding =

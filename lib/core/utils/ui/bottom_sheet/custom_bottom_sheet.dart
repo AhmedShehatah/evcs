@@ -8,22 +8,25 @@ import 'package:get/get.dart';
 class CustomBottomSheet {
   static void showBottomSheet(Widget child) {
     Get.bottomSheet(
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const VerticalPadding(1),
-          Align(
-            alignment: Alignment.topCenter,
-            child: SizedBox(
-              width: ScreenHelper.fromWidth(12),
-              child: Divider(
-                thickness: 3,
-                color: DIManager.findCC().lightGreyColor,
+      isScrollControlled: true,
+      SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const VerticalPadding(1),
+            Align(
+              alignment: Alignment.topCenter,
+              child: SizedBox(
+                width: ScreenHelper.fromWidth(12),
+                child: Divider(
+                  thickness: 3,
+                  color: DIManager.findCC().lightGreyColor,
+                ),
               ),
             ),
-          ),
-          child,
-        ],
+            child,
+          ],
+        ),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

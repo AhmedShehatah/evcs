@@ -14,4 +14,5 @@ class AppAssets {
   static String car_placeholder = "assets/images/car_placeholder.png";
   static String grey_add = "assets/images/grey_add.png";
   static String power_plugin = "assets/images/power_plugin.png";
+  static String visa = "assets/images/visa.png";
 }

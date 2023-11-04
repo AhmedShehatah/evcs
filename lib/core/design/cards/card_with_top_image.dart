@@ -43,6 +43,7 @@ class CardWithTopImage extends StatelessWidget {
                 image: imagePath,
                 height: imageHeight,
                 width: imageWidth,
+                boxFit: BoxFit.contain,
               ),
               const VerticalPadding(1),
               Text3Title(
