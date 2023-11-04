@@ -3,7 +3,7 @@
 class AppConsts {
   AppConsts._();
 
-  static const appName = 'Mazad';
+  static const appName = 'EVCS';
   static bool isDebugMode = true;
 
   static const LANG_AR = 'ar';

@@ -1,5 +1,6 @@
 // ignore_for_file: unused_element
 
+import 'package:evcs/features/home/cubit/home_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -20,6 +21,9 @@ class DIManager {
     _injectDep(ApplicationCubit());
     _injectDep(AppNavigator());
     _injectDep(AppColorsController());
+
+    /// ------------------ blocs ----------------
+    _injectDep(HomeCubit());
   }
 
   static T findDep<T extends Object>() {
