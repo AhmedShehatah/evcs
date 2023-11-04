@@ -36,4 +36,5 @@ class AppColorsController {
   Color notSelectedGrey = const Color(0xFF7A8FA6);
   Color white = Colors.white;
   Color formFieldBackgroundColor = const Color(0xFFE9E9E9);
+  Color defaultGreyBackgroundColor = const Color(0xFFE9E9E9);
 }

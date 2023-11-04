@@ -1,7 +1,9 @@
 import 'package:evcs/core/constants/dimens.dart';
 import 'package:evcs/core/design/text/custom_text.dart';
 import 'package:evcs/core/utils/localization/app_localizations.dart';
+import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
 import 'package:evcs/features/home/widgets/my_cars_list.dart';
+import 'package:evcs/features/home/widgets/price_widget.dart';
 import 'package:flutter/material.dart';
 
 class BookSheet extends StatelessWidget {
@@ -18,6 +20,9 @@ class BookSheet extends StatelessWidget {
             translate('My Cars'),
           ),
           const MyCarsListWidget(),
+          const VerticalPadding(2),
+          Text3Title(translate("Price")),
+          const PriceWidget(),
         ],
       ),
     );
