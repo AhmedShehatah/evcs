@@ -1,6 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:evcs/core/design/root/root_screen.dart';
+import 'package:evcs/core/design/root/page/root_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -38,8 +38,8 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
+      value: SystemUiOverlayStyle(
+        statusBarColor: DIManager.findCC().primaryColor,
       ),
       child: MultiBlocProvider(
         providers: [

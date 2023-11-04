@@ -1,6 +1,7 @@
 import 'package:evcs/core/states/base_init_state.dart';
 import 'package:evcs/core/states/base_wait_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
@@ -42,5 +43,16 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   void changeLanguage(String langCode) {
     appLanguage = supportedLanguages
         .firstWhere((element) => element.languageCode == langCode);
+  }
+
+  final _drawerController = AdvancedDrawerController();
+  AdvancedDrawerController get drawerController => _drawerController;
+
+  void openDrawer() {
+    _drawerController.showDrawer();
+  }
+
+  void closeDrawer() {
+    _drawerController.hideDrawer();
   }
 }
