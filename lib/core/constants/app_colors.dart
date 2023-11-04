@@ -10,7 +10,7 @@ class AppColorsController {
   Color get primaryColor => _primaryColor.value ?? defaultPrimaryColor;
 
   String get primaryColorStr => _primaryColorStr;
-
+  Color defaultAppDarkColor = const Color(0xFF1E2022);
   final defaultPrimaryColor = const Color(0xFF66AD28);
   Color black = Colors.black;
   Color bottomSheetShadow = const Color(0xFF000019);

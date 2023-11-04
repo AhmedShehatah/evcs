@@ -5,6 +5,7 @@ import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/features/home/cubit/home_cubit.dart';
 import 'package:evcs/features/home/widgets/book_sheet.dart';
 import 'package:evcs/features/home/widgets/map_widget.dart';
+import 'package:evcs/features/home/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/utils/ui/bottom_sheet/custom_bottom_sheet.dart';
@@ -31,6 +32,13 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Stack(
           children: [
             const MapWidget(),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: Dimens.menuPadding,
+                child: const HomeMenuWidget(),
+              ),
+            ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(

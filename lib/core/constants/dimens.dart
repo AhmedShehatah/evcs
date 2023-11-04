@@ -10,6 +10,8 @@ class Dimens {
       EdgeInsets.symmetric(vertical: 14.h, horizontal: 18.w);
   static EdgeInsets bottomSheetInternalPadding =
       EdgeInsets.symmetric(vertical: 28.h, horizontal: 30.w);
+  static EdgeInsets menuPadding =
+      EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h);
   // ignore: non_constant_identifier_names
   static double defaultBorderWidth = ScreenHelper.fromWidth55(0.35);
 

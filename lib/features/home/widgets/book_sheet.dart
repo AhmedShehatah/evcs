@@ -30,7 +30,7 @@ class BookSheet extends StatelessWidget {
           Text3Title(translate("Credit Card")),
           const VerticalPadding(1),
           const CreditCardHomeWidget(),
-          const VerticalPadding(2),
+          const VerticalPadding(3),
           AppDefaultButton(
             onPress: () {},
             title: 'Charge Now',
