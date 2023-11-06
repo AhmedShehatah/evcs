@@ -7,6 +7,7 @@ import 'package:evcs/core/utils/ui/snackbar/custom_snack_bar.dart';
 import 'package:evcs/features/home/cubit/home_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:logger/logger.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeState.initState());
@@ -14,6 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
   Marker marker = const Marker(markerId: MarkerId('marker'));
   late LatLng currentLocation;
   void getCurrentLocation() {
+    Logger().d('Triggered');
     DIManager.findAC().showLoading();
     emit(state.copyWith(cuurentLocationState: const BaseLoadingState()));
     AppLocation().determinePosition().then((location) {

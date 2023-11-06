@@ -1,9 +1,9 @@
 import 'package:animations/animations.dart';
-import 'package:evcs/core/design/loading_widgets/custom_loading.dart';
 import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/auth/pages/register_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 import 'package:evcs/features/onboarding/onboarding_screen.dart';
+import 'package:evcs/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -43,6 +43,8 @@ class RouteGenerator {
         return const RegisterScreen();
       case HomeScreen.routeName:
         return const HomeScreen();
+      case SplashScreen.routeName:
+        return const SplashScreen();
 
       default:
         settings = RouteSettings(
