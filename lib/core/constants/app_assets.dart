@@ -15,4 +15,5 @@ class AppAssets {
   static String grey_add = "assets/images/grey_add.png";
   static String power_plugin = "assets/images/power_plugin.png";
   static String visa = "assets/images/visa.png";
+  static String logo = "assets/images/logo.png";
 }

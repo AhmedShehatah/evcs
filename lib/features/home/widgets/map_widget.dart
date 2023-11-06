@@ -20,11 +20,6 @@ class _MapWidgetState extends State<MapWidget> {
       Completer<GoogleMapController>();
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       bloc: DIManager.findDep<HomeCubit>(),
