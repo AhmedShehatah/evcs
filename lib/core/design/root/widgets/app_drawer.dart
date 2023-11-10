@@ -1,8 +1,8 @@
 import 'package:evcs/core/di/di_manager.dart';
-import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../features/garage/page/garage_screen.dart';
 import '../../../constants/app_assets.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -43,12 +43,11 @@ class AppDrawer extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                DIManager.findNavigator()
-                    .pushReplacementNamed(LoginScreen.routeName);
+                DIManager.findNavigator().pushNamed(GarageScreen.routeName);
                 DIManager.findAC().closeDrawer();
               },
               leading: const Icon(Icons.account_circle_rounded),
-              title: const Text('Profile'),
+              title: const Text('My Garage'),
             ),
             ListTile(
               onTap: () {},
