@@ -8,6 +8,7 @@ class Dimens {
 
   static EdgeInsets cardInternalPadding =
       EdgeInsets.symmetric(vertical: 14.h, horizontal: 18.w);
+  static EdgeInsets cardMargins = EdgeInsets.symmetric(vertical: 10.w);
   static EdgeInsets bottomSheetInternalPadding =
       EdgeInsets.symmetric(vertical: 28.h, horizontal: 30.w);
   static EdgeInsets menuPadding =
@@ -16,6 +17,7 @@ class Dimens {
   static double defaultBorderWidth = ScreenHelper.fromWidth55(0.35);
 
   static double cardBorderRadius = 10.w;
+  static double cardBorderRadiusBig = 15.w;
   static double bottomSheetBorderRadius = 35.w;
   static double buttonBorderRadius = 8.w;
   static double textFormBorder = 8.w;
