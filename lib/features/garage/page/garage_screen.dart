@@ -4,7 +4,7 @@ import 'package:evcs/features/garage/widgets/garage_list_item.dart';
 import 'package:flutter/material.dart';
 
 class GarageScreen extends StatelessWidget {
-  static const String routeName = "/garage-screen";
+  static const String routeName = "My Garage";
   const GarageScreen({super.key});
 
   @override

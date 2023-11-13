@@ -1,23 +1,29 @@
 // ignore_for_file: avoid_print
 
+import 'package:evcs/core/di/di_manager.dart';
+import 'package:evcs/features/home/pages/home_screen.dart';
+import 'package:evcs/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppNavigatorObserver extends NavigatorObserver {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    print('This is never get called didPush $route | $previousRoute');
+    if (HomeScreen.routeName == route.settings.name ||
+        SplashScreen.routeName == route.settings.name ||
+        route.settings.name == null) {
+      DIManager.findAC().setAppBarStatus(false, route.settings.name ?? '/');
+    } else {
+      DIManager.findAC().setAppBarStatus(true, route.settings.name ?? '/');
+    }
   }
 
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    print('This is never get called didPop $route | $previousRoute');
+    DIManager.findAC().setAppBarStatus(false, route.settings.name ?? '/');
   }
 
   @override
-  void didRemove(Route route, Route? previousRoute) {
-    print('This is never get called didRemove $route | $previousRoute');
-    super.didRemove(route, previousRoute);
-  }
+  void didRemove(Route route, Route? previousRoute) {}
 
   @override
   void didReplace({Route? newRoute, Route? oldRoute}) {
