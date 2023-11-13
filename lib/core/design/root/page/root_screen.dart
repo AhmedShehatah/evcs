@@ -3,6 +3,7 @@ import 'package:evcs/app/cubit/application_state.dart';
 import 'package:evcs/core/design/loading_widgets/custom_loading.dart';
 import 'package:evcs/core/design/root/widgets/app_drawer.dart';
 import 'package:evcs/core/design/root/widgets/back_drop_widget.dart';
+import 'package:evcs/core/design/root/widgets/default_app_bar.dart';
 import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/states/base_wait_state.dart';
 import 'package:flutter/material.dart';
@@ -32,24 +33,33 @@ class _RootScreenState extends State<RootScreen> {
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       drawer: const AppDrawer(),
-      child: Scaffold(
-        body: Stack(
-          children: [
-            widget.child!,
-            BlocBuilder<ApplicationCubit, ApplicationState>(
-              buildWhen: (o, n) => o.loadingState != n.loadingState,
-              bloc: DIManager.findAC(),
-              builder: (context, state) {
-                var loadingState = state.loadingState;
-                if (loadingState is BaseLoadingState) {
-                  return const CustomLoading();
-                } else {
-                  return const SizedBox();
-                }
-              },
+      child: BlocBuilder<ApplicationCubit, ApplicationState>(
+        bloc: DIManager.findAC(),
+        buildWhen: (o, n) => o.isVisible != n.isVisible,
+        builder: (context, state) {
+          return Scaffold(
+            appBar: state.isVisible
+                ? DefaultAppBar(screenName: state.screenName)
+                : null,
+            body: Stack(
+              children: [
+                widget.child!,
+                BlocBuilder<ApplicationCubit, ApplicationState>(
+                  buildWhen: (o, n) => o.loadingState != n.loadingState,
+                  bloc: DIManager.findAC(),
+                  builder: (context, state) {
+                    var loadingState = state.loadingState;
+                    if (loadingState is BaseLoadingState) {
+                      return const CustomLoading();
+                    } else {
+                      return const SizedBox();
+                    }
+                  },
+                ),
+              ],
             ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

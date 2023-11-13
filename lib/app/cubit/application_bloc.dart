@@ -55,4 +55,8 @@ class ApplicationCubit extends Cubit<ApplicationState> {
   void closeDrawer() {
     _drawerController.hideDrawer();
   }
+
+  void setAppBarStatus(bool isVisiable, String screenName) {
+    emit(state.copyWith(isVisible: isVisiable, screenName: screenName));
+  }
 }
