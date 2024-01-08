@@ -7,6 +7,7 @@ class SharedPrefs {
       ReadWriteValue('isFirstLaunch${AppConsts.appName}', true);
   final appLanguageCode =
       ReadWriteValue('appLanguageCode${AppConsts.appName}', AppConsts.LANG_EN);
-
-  String getToken() => 'token';
+  final _token = ReadWriteValue<String?>("token:${AppConsts.appName}", null);
+  String? getToken() => _token.val;
+  void setToken(String token) => _token.val = token;
 }

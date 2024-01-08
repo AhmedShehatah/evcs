@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:evcs/core/constants/app_assets.dart';
 import 'package:evcs/core/di/di_manager.dart';
+import 'package:evcs/core/shared_prefs/shared_prefs.dart';
 import 'package:evcs/core/utils/screen_utils/device_utils.dart';
 import 'package:evcs/core/utils/ui/widgets/images/custom_image.dart';
+import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,11 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      DIManager.findNavigator().offAll(HomeScreen.routeName);
+      if (DIManager.findDep<SharedPrefs>().getToken() == null) {
+        DIManager.findNavigator().offAll(LoginScreen.routeName);
+      } else {
+        DIManager.findNavigator().offAll(HomeScreen.routeName);
+      }
     });
   }
 

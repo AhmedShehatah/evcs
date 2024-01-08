@@ -13,8 +13,6 @@ import 'application_state.dart';
 class ApplicationCubit extends Cubit<ApplicationState> {
   ApplicationCubit() : super(ApplicationState.initialState());
 
-  Future<void> init() async {}
-
   final List<Locale> supportedLanguages = [
     const Locale(AppConsts.LANG_AR),
     const Locale(AppConsts.LANG_EN)

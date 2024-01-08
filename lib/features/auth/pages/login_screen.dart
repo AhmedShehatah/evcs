@@ -6,6 +6,8 @@ import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
 import 'package:evcs/core/validators/email_validator.dart';
 import 'package:evcs/core/validators/min_length_validator.dart';
+import 'package:evcs/data/models/auth/sign_in_request.dart';
+import 'package:evcs/features/auth/cubit/auth_cubit.dart';
 import 'package:evcs/features/auth/pages/register_screen.dart';
 import 'package:evcs/features/auth/widgets/auth_title.dart';
 import 'package:evcs/features/auth/widgets/forgot_password.dart';
@@ -71,7 +73,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       setState(() {
                         _autoValidateMode = AutovalidateMode.onUserInteraction;
                       });
-                      formKey.currentState!.validate();
+                      if (formKey.currentState?.validate() ?? false) {
+                        DIManager.findDep<AuthCubit>().signIn(SignInRequest(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        ));
+                      }
                     },
                     title: 'Sign in',
                     iconPath: CustomIcons.pinInRectIcon,

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:evcs/core/shared_prefs/shared_prefs.dart';
 
 import '../../../core/di/di_manager.dart';
 import '../../../core/errors/base_error.dart';
@@ -81,6 +82,9 @@ class ApiProvider {
             options: Options(headers: headers),
           );
           break;
+      }
+      if (response.data['token'] != null) {
+        DIManager.findDep<SharedPrefs>().setToken(response.data['token']);
       }
 
       if (converterList != null) {

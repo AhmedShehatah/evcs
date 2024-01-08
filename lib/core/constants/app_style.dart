@@ -268,7 +268,7 @@ class AppStyle {
 
   // 16
   static TextStyle titleStyle = TextStyle(
-    fontSize: AppFontSize.fontSize_16,
+    fontSize: AppFontSize.fontSize_14,
     color: DIManager.findCC().darkGreyTextColor,
     fontWeight: FontWeight.bold,
     letterSpacing: 1,
