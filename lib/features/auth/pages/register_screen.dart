@@ -6,6 +6,9 @@ import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
 import 'package:evcs/core/validators/email_validator.dart';
 import 'package:evcs/core/validators/min_length_validator.dart';
+import 'package:evcs/core/validators/required_validator.dart';
+import 'package:evcs/data/models/auth/sign_up_request.dart';
+import 'package:evcs/features/auth/cubit/auth_cubit.dart';
 import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/auth/widgets/auth_title.dart';
 import 'package:evcs/features/auth/widgets/or_widget.dart';
@@ -22,6 +25,8 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
   final passwordController = TextEditingController();
   final phoneNumberController = TextEditingController();
   final formKey = GlobalKey<FormState>();
@@ -45,6 +50,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   const VerticalPadding(10),
                   const AuthTitle(title: 'sign up'),
                   const VerticalPadding(10),
+                  CustomFormField(
+                    hasAboveTitle: true,
+                    controller: firstNameController,
+                    hint: 'Enter Your First Name',
+                    iconPath: CustomIcons.userIcon,
+                    title: 'First Name',
+                    textInputType: TextInputType.text,
+                    validator: RequiredValidator(),
+                  ),
+                  const VerticalPadding(5),
+                  CustomFormField(
+                    hasAboveTitle: true,
+                    controller: lastNameController,
+                    hint: 'Enter Your Last Name',
+                    iconPath: CustomIcons.userIcon,
+                    title: 'Last Name',
+                    textInputType: TextInputType.text,
+                    validator: RequiredValidator(),
+                  ),
+                  const VerticalPadding(5),
                   CustomFormField(
                     hasAboveTitle: true,
                     controller: emailController,
@@ -79,7 +104,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       setState(() {
                         _autoValidateMode = AutovalidateMode.onUserInteraction;
                       });
-                      formKey.currentState!.validate();
+                      if (formKey.currentState?.validate() ?? false) {
+                        DIManager.findDep<AuthCubit>().signUp(SignUpRequest(
+                            email: emailController.text,
+                            password: passwordController.text,
+                            phone: phoneNumberController.text,
+                            firstName: firstNameController.text,
+                            lastName: lastNameController.text));
+                      }
                     },
                     title: 'Sign Up',
                     iconPath: CustomIcons.pinInRectIcon,
