@@ -1,6 +1,8 @@
 // ignore_for_file: avoid_print
 
 import 'package:evcs/core/di/di_manager.dart';
+import 'package:evcs/features/auth/pages/login_screen.dart';
+import 'package:evcs/features/auth/pages/register_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 import 'package:evcs/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,8 @@ class AppNavigatorObserver extends NavigatorObserver {
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     if (HomeScreen.routeName == route.settings.name ||
         SplashScreen.routeName == route.settings.name ||
+        RegisterScreen.routeName == route.settings.name ||
+        LoginScreen.routeName == route.settings.name ||
         route.settings.name == null) {
       DIManager.findAC().setAppBarStatus(false, route.settings.name ?? '/');
     } else {
