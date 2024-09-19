@@ -1,6 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:evcs/core/design/root/page/root_screen.dart';
+import 'package:evcs/core/localization/app_localizations.dart';
+import 'package:evcs/core/localization/cubit/locale_cubit.dart';
 import 'package:evcs/features/splash/splash_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -41,80 +43,60 @@ class _AppState extends State<App> {
       value: SystemUiOverlayStyle(
         statusBarColor: DIManager.findCC().primaryColor,
       ),
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider<ApplicationCubit>(
-              create: (cxt) => DIManager.findDep<ApplicationCubit>()),
-        ],
-        child: ScreenUtilInit(
-          designSize: const Size(376, 812),
-          builder: (context, _) {
-            return BlocConsumer<ApplicationCubit, ApplicationState>(
-                listener: (_, __) {},
-                buildWhen: (s0, s1) {
-                  return false;
-                },
-                listenWhen: (s0, s1) {
-                  return false;
-                },
-                builder: (_, appState) {
-                  return GetMaterialApp(
-                    enableLog: false,
-                    navigatorObservers: [AppNavigatorObserver()],
-                    onGenerateRoute: RouteGenerator.generateRoutes,
-                    debugShowCheckedModeBanner: false,
-                    builder: (BuildContext context, Widget? widget) {
-                      ScreenHelper(context);
-                      return RootScreen(
-                        child: widget,
-                      );
-                    },
-                    theme: ThemeData(
-                      textTheme:
-                          AppFont.getTextTheme(Theme.of(context).textTheme),
-                      tabBarTheme: TabBarTheme(
-                        labelColor: DIManager.findDep<AppColorsController>()
-                            .primaryColor,
-                        unselectedLabelColor:
-                            DIManager.findDep<AppColorsController>()
-                                .greyTextColor,
-                        labelStyle: AppStyle.tabBarLabelStyle,
-                        unselectedLabelStyle:
-                            AppStyle.tabBarUnselectedLabelStyle,
-                      ),
-                      primaryColor:
-                          DIManager.findDep<AppColorsController>().primaryColor,
-                      textButtonTheme: TextButtonThemeData(
-                        style: TextButton.styleFrom(
-                          foregroundColor:
-                              DIManager.findDep<AppColorsController>()
-                                  .primaryColor,
-                          padding: EdgeInsets.zero,
-                        ),
-                      ),
-                      colorScheme: const ColorScheme.light(),
-                    ),
-                    title: AppConsts.appName,
-
-                    translations: AppTranslations(),
-                    locale: DIManager.findDep<ApplicationCubit>().appLanguage,
-                    // locale: Locale(AppConsts.LANG_AR),
-                    fallbackLocale: const Locale(AppConsts.LANG_DEFAULT),
-                    supportedLocales: DIManager.findDep<ApplicationCubit>()
-                        .supportedLanguages,
-                    localizationsDelegates: const [
-                      // Built-in localization of basic text for Material widgets
-                      GlobalMaterialLocalizations.delegate,
-                      // Built-in localization for text direction LTR/RTL
-                      GlobalWidgetsLocalizations.delegate,
-                      // Built-in localization of basic text for Cupertino widgets
-                      GlobalCupertinoLocalizations.delegate,
-                    ],
-                    initialRoute: SplashScreen.routeName,
+      child: ScreenUtilInit(
+        designSize: const Size(376, 812),
+        builder: (context, _) {
+          return BlocBuilder<LocaleCubit, Locale>(
+            bloc: DIManager.findDep<LocaleCubit>(),
+            builder: (context, state) {
+              return GetMaterialApp(
+                // textDirection:
+                //     DIManager.findDep<LocaleCubit>().getTextDirection(),
+                enableLog: false,
+                navigatorObservers: [AppNavigatorObserver()],
+                onGenerateRoute: RouteGenerator.generateRoutes,
+                debugShowCheckedModeBanner: false,
+                builder: (BuildContext context, Widget? widget) {
+                  ScreenHelper(context);
+                  return RootScreen(
+                    child: widget,
                   );
-                });
-          },
-        ),
+                },
+                theme: ThemeData(
+                  textTheme: AppFont.getTextTheme(Theme.of(context).textTheme),
+                  tabBarTheme: TabBarTheme(
+                    labelColor:
+                        DIManager.findDep<AppColorsController>().primaryColor,
+                    unselectedLabelColor:
+                        DIManager.findDep<AppColorsController>().greyTextColor,
+                    labelStyle: AppStyle.tabBarLabelStyle,
+                    unselectedLabelStyle: AppStyle.tabBarUnselectedLabelStyle,
+                  ),
+                  primaryColor:
+                      DIManager.findDep<AppColorsController>().primaryColor,
+                  textButtonTheme: TextButtonThemeData(
+                    style: TextButton.styleFrom(
+                      foregroundColor:
+                          DIManager.findDep<AppColorsController>().primaryColor,
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                  colorScheme: const ColorScheme.light(),
+                ),
+                title: AppConsts.appName,
+
+                locale: state,
+                // locale: Locale(AppConsts.LANG_AR),
+                //fallbackLocale: const Locale(AppConsts.LANG_DEFAULT),
+                supportedLocales: AppLocalizations.supportedLocales,
+                localizationsDelegates: const [
+                  ...AppLocalizations.localizationsDelegates
+                ],
+                initialRoute: SplashScreen.routeName,
+              );
+            },
+          );
+        },
       ),
     );
   }

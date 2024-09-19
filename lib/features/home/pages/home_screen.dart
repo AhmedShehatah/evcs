@@ -2,6 +2,7 @@ import 'package:evcs/core/constants/dimens.dart';
 // import 'package:evcs/core/design/bottom_sheet/custom_bottom_sheet.dart';
 import 'package:evcs/core/design/buttons/app_default_button.dart';
 import 'package:evcs/core/di/di_manager.dart';
+import 'package:evcs/core/localization/cubit/locale_cubit.dart';
 import 'package:evcs/features/home/cubit/home_cubit.dart';
 import 'package:evcs/features/home/widgets/book_sheet.dart';
 import 'package:evcs/features/home/widgets/map_widget.dart';
@@ -47,7 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPress: () {
                       CustomBottomSheet.showBottomSheet(const BookSheet());
                     },
-                    title: 'Done'),
+                    title: DIManager.findDep<LocaleCubit>()
+                        .appLocalizations
+                        .helloWorld),
               ),
             ),
           ],

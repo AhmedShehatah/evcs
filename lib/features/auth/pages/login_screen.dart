@@ -3,6 +3,7 @@ import 'package:evcs/core/constants/dimens.dart';
 import 'package:evcs/core/design/buttons/app_default_button.dart';
 import 'package:evcs/core/design/formfields/custom_form_field.dart';
 import 'package:evcs/core/di/di_manager.dart';
+import 'package:evcs/core/localization/cubit/locale_cubit.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
 import 'package:evcs/core/validators/email_validator.dart';
 import 'package:evcs/core/validators/min_length_validator.dart';
@@ -27,6 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  final _localization = DIManager.findDep<LocaleCubit>().appLocalizations;
   AutovalidateMode _autoValidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
@@ -44,14 +46,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const VerticalPadding(10),
-                  const AuthTitle(title: 'sign in'),
+                  AuthTitle(title: _localization.signIn),
                   const VerticalPadding(12),
                   CustomFormField(
                     hasAboveTitle: true,
                     controller: emailController,
-                    hint: 'Enter Your Email Address',
+                    hint: _localization.enterEmail,
                     iconPath: CustomIcons.emailIcon,
-                    title: 'E-mail Address',
+                    title: _localization.email,
                     textInputType: TextInputType.emailAddress,
                     validator: EmailValidator(),
                   ),
@@ -60,13 +62,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     hasAboveTitle: true,
                     controller: passwordController,
                     isSecure: true,
-                    hint: 'Enter Your Password',
+                    hint: _localization.enterPassword,
                     iconPath: CustomIcons.passowrdIcon,
                     validator: MinLengthValidator(minLength: 8),
-                    title: 'Password',
+                    title: _localization.password,
                   ),
                   const VerticalPadding(2),
-                  const ForogotPassword(),
+                  ForogotPassword(),
                   const VerticalPadding(5),
                   AppDefaultButton(
                     onPress: () {
@@ -80,19 +82,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         ));
                       }
                     },
-                    title: 'Sign in',
+                    title: DIManager.findDep<LocaleCubit>()
+                        .appLocalizations
+                        .signIn,
                     iconPath: CustomIcons.pinInRectIcon,
                   ),
                   const VerticalPadding(5),
-                  const OrWidget(),
+                  OrWidget(),
                   const VerticalPadding(3),
                   SwitchAuth(
                     onPress: () {
                       DIManager.findNavigator()
                           .offAll(RegisterScreen.routeName);
                     },
-                    title: 'Sign Up',
-                    desc: "Don't have an Account?",
+                    title: _localization.signUp,
+                    desc: _localization.dontHaveAcc,
                   )
                 ],
               ),
