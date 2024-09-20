@@ -1,12 +1,13 @@
 import 'package:evcs/core/constants/app_style.dart';
 import 'package:evcs/core/di/di_manager.dart';
+import 'package:evcs/core/localization/cubit/locale_cubit.dart';
 import 'package:evcs/core/utils/localization/app_localizations.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/horizontal_padding.dart';
 import 'package:flutter/material.dart';
 
 class OrWidget extends StatelessWidget {
-  const OrWidget({super.key});
-
+  OrWidget({super.key});
+  final _localization = DIManager.findDep<LocaleCubit>().appLocalizations;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,7 +22,7 @@ class OrWidget extends StatelessWidget {
         ),
         const HorizontalPadding(5),
         Text(
-          translate('or'),
+          _localization.or,
           style: AppStyle.bigTitleStyle.copyWith(
             color: DIManager.findCC().greyLightTextColor,
           ),

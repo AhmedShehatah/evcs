@@ -1,0 +1,26 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "signIn":"Sign In",
+  "signUp": "Sign Up",
+  "done": "Done",
+  "myGarage": "My Garage",
+  "home":"Home",
+  "fav":"Favorites",
+  "password":"Password",
+  "enterPassword":"Enter Your Password",
+  "email":"E-mail Address",
+  "enterEmail":"Enter Your Email Address",
+  "dontHaveAcc":"Don't have an Account?",
+  "forgotPassword":"Forgot Password ?",
+  "or":"Or",
+  "firstName":"First Name",
+  "lastName":"Last Name",
+  "enterFirstName":"Enter Your First Name",
+  "enterLastName":"Enter Your Last Name",
+  "phoneNum":"Phone Number",
+  "enterPhone":"Enter Your Phone Number",
+  "haveAcc":"Already have an account ?"
+}
