@@ -1,4 +1,6 @@
 import 'package:evcs/core/di/di_manager.dart';
+import 'package:evcs/core/shared_prefs/shared_prefs.dart';
+import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -58,6 +60,14 @@ class AppDrawer extends StatelessWidget {
               onTap: () {},
               leading: const Icon(Icons.settings),
               title: const Text('Settings'),
+            ),
+            ListTile(
+              onTap: () {
+                DIManager.findDep<SharedPrefs>().logOut();
+                DIManager.findNavigator().offAll(LoginScreen.routeName);
+              },
+              leading: const Icon(Icons.login),
+              title: const Text('Log Out'),
             ),
             const Spacer(),
             DefaultTextStyle(

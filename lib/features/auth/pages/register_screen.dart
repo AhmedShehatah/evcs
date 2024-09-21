@@ -8,7 +8,7 @@ import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
 import 'package:evcs/core/validators/email_validator.dart';
 import 'package:evcs/core/validators/min_length_validator.dart';
 import 'package:evcs/core/validators/required_validator.dart';
-import 'package:evcs/data/models/auth/sign_up_request.dart';
+import 'package:evcs/data/models/auth/sign_up_request/sign_up_request.dart';
 import 'package:evcs/features/auth/cubit/auth_cubit.dart';
 import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/auth/widgets/auth_title.dart';

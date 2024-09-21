@@ -48,9 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPress: () {
                       CustomBottomSheet.showBottomSheet(const BookSheet());
                     },
-                    title: DIManager.findDep<LocaleCubit>()
-                        .appLocalizations
-                        .helloWorld),
+                    title:
+                        DIManager.findDep<LocaleCubit>().appLocalizations.done),
               ),
             ),
           ],

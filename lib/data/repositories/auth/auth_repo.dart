@@ -1,7 +1,7 @@
 import 'package:evcs/core/results/result.dart';
 import 'package:evcs/data/models/auth/auth_response.dart';
-import 'package:evcs/data/models/auth/sign_in_request.dart';
-import 'package:evcs/data/models/auth/sign_up_request.dart';
+import 'package:evcs/data/models/auth/sign_in_request/sign_in_request.dart';
+import 'package:evcs/data/models/auth/sign_up_request/sign_up_request.dart';
 import 'package:evcs/data/sources/auth/auth_remote_data_source.dart';
 
 class AuthRepo implements IAuthRepo {
