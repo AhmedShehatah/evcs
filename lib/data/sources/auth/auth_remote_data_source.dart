@@ -2,8 +2,8 @@ import 'package:evcs/core/network/http_method.dart';
 import 'package:evcs/core/results/result.dart';
 import 'package:evcs/data/endpoints/app_endpoints.dart';
 import 'package:evcs/data/models/auth/auth_response.dart';
-import 'package:evcs/data/models/auth/sign_in_request.dart';
-import 'package:evcs/data/models/auth/sign_up_request.dart';
+import 'package:evcs/data/models/auth/sign_in_request/sign_in_request.dart';
+import 'package:evcs/data/models/auth/sign_up_request/sign_up_request.dart';
 
 import '../../../core/data_source/base_remote_data_source.dart';
 
