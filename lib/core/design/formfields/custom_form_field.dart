@@ -21,6 +21,8 @@ class CustomFormField extends StatefulWidget {
     this.validator,
     required this.hint,
     this.isSecure = false,
+    this.disabled = false,
+    this.suffix = null,
   });
 
   final bool hasAboveTitle;
@@ -32,6 +34,8 @@ class CustomFormField extends StatefulWidget {
   final BaseValidator? validator;
   final String hint;
   final bool isSecure;
+  final bool disabled;
+  final Widget? suffix;
 
   @override
   State<CustomFormField> createState() => _CustomFormFieldState();
@@ -75,9 +79,11 @@ class _CustomFormFieldState extends State<CustomFormField> {
               true,
             );
           },
+          enabled: !widget.disabled,
           maxLines: 1,
           minLines: 1,
           decoration: AppStyle.inputDecoration(
+            suffixIcon: widget.suffix,
             hintText: translate(widget.hint),
             obscuring: widget.isSecure ? _obscuredPassword : null,
             onObscurePressed: widget.isSecure
