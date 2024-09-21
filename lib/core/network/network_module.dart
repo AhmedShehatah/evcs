@@ -1,4 +1,6 @@
+import 'package:awesome_dio_interceptor/awesome_dio_interceptor.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../data/endpoints/app_endpoints.dart';
 
@@ -7,7 +9,7 @@ abstract class NetworkModule {
     final dio = Dio();
 
     dio
-      ..options.baseUrl = AppEndpoints.BASE_URL
+      ..options.baseUrl = dotenv.get('BASE_URL')
       ..options.connectTimeout =
           const Duration(seconds: AppEndpoints.connectionTimeout)
       ..options.headers.putIfAbsent('Content-Type', () => 'application/json')
@@ -16,14 +18,7 @@ abstract class NetworkModule {
     dio.interceptors.clear();
 
     dio.interceptors.addAll([
-      LogInterceptor(
-        request: true,
-        responseBody: true,
-        requestBody: true,
-        requestHeader: true,
-        error: true,
-        responseHeader: true,
-      ),
+      AwesomeDioInterceptor(),
     ]);
 
     return dio;
