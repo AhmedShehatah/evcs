@@ -7,16 +7,16 @@ import 'package:evcs/core/design/buttons/app_default_button.dart';
 import 'package:evcs/core/design/formfields/custom_form_field.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
 
-class NewCarScreen extends StatefulWidget {
-  static const String routeName = '/new-car-screen';
+class AddCarScreen extends StatefulWidget {
+  static const String routeName = '/add-car-screen';
 
-  const NewCarScreen({super.key});
+  const AddCarScreen({super.key});
 
   @override
-  State<NewCarScreen> createState() => _NewCarScreenState();
+  State<AddCarScreen> createState() => _AddCarScreenState();
 }
 
-class _NewCarScreenState extends State<NewCarScreen> {
+class _AddCarScreenState extends State<AddCarScreen> {
   final formKey = GlobalKey<FormState>();
   final carColorController = TextEditingController();
   final carModelController = TextEditingController();

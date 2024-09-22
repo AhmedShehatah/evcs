@@ -1,8 +1,7 @@
-import 'package:evcs/core/constants/app_assets.dart';
+import 'package:evcs/core/assets/assets.gen.dart';
 import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/utils/screen_utils/device_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class CustomLoading extends StatelessWidget {
   const CustomLoading({super.key});
@@ -17,9 +16,7 @@ class CustomLoading extends StatelessWidget {
         child: SizedBox(
           width: ScreenHelper.fromWidth(30),
           height: ScreenHelper.fromHeight(30),
-          child: LottieBuilder.asset(
-            AppAssets.loading,
-          ),
+          child: Assets.gifs.loading.lottie(),
         ),
       ),
     );

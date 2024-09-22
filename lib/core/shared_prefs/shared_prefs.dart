@@ -10,4 +10,8 @@ class SharedPrefs {
   final _token = ReadWriteValue<String?>("token:${AppConsts.appName}", null);
   String? getToken() => _token.val;
   void setToken(String token) => _token.val = token;
+
+  void logOut() {
+    _token.val = null;
+  }
 }
