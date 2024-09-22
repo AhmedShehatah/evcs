@@ -16,10 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddCarRequest {
-  String get brand => throw _privateConstructorUsedError;
-  String get model => throw _privateConstructorUsedError;
-  String get plate_number => throw _privateConstructorUsedError;
-  String get color => throw _privateConstructorUsedError;
+  String? get brand => throw _privateConstructorUsedError;
+  String? get model => throw _privateConstructorUsedError;
+  @JsonKey(name: 'plate_number')
+  String? get plateNumber => throw _privateConstructorUsedError;
+  String? get color => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,11 @@ abstract class $AddCarRequestCopyWith<$Res> {
           AddCarRequest value, $Res Function(AddCarRequest) then) =
       _$AddCarRequestCopyWithImpl<$Res, AddCarRequest>;
   @useResult
-  $Res call({String brand, String model, String plate_number, String color});
+  $Res call(
+      {String? brand,
+      String? model,
+      @JsonKey(name: 'plate_number') String? plateNumber,
+      String? color});
 }
 
 /// @nodoc
@@ -49,28 +54,28 @@ class _$AddCarRequestCopyWithImpl<$Res, $Val extends AddCarRequest>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? brand = null,
-    Object? model = null,
-    Object? plate_number = null,
-    Object? color = null,
+    Object? brand = freezed,
+    Object? model = freezed,
+    Object? plateNumber = freezed,
+    Object? color = freezed,
   }) {
     return _then(_value.copyWith(
-      brand: null == brand
+      brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
-              as String,
-      model: null == model
+              as String?,
+      model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as String,
-      plate_number: null == plate_number
-          ? _value.plate_number
-          : plate_number // ignore: cast_nullable_to_non_nullable
-              as String,
-      color: null == color
+              as String?,
+      plateNumber: freezed == plateNumber
+          ? _value.plateNumber
+          : plateNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -83,7 +88,11 @@ abstract class _$$AddCarRequestImplCopyWith<$Res>
       __$$AddCarRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String brand, String model, String plate_number, String color});
+  $Res call(
+      {String? brand,
+      String? model,
+      @JsonKey(name: 'plate_number') String? plateNumber,
+      String? color});
 }
 
 /// @nodoc
@@ -97,28 +106,28 @@ class __$$AddCarRequestImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? brand = null,
-    Object? model = null,
-    Object? plate_number = null,
-    Object? color = null,
+    Object? brand = freezed,
+    Object? model = freezed,
+    Object? plateNumber = freezed,
+    Object? color = freezed,
   }) {
     return _then(_$AddCarRequestImpl(
-      brand: null == brand
+      brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
-              as String,
-      model: null == model
+              as String?,
+      model: freezed == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as String,
-      plate_number: null == plate_number
-          ? _value.plate_number
-          : plate_number // ignore: cast_nullable_to_non_nullable
-              as String,
-      color: null == color
+              as String?,
+      plateNumber: freezed == plateNumber
+          ? _value.plateNumber
+          : plateNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -129,21 +138,22 @@ class _$AddCarRequestImpl implements _AddCarRequest {
   const _$AddCarRequestImpl(
       {required this.brand,
       required this.model,
-      required this.plate_number,
+      @JsonKey(name: 'plate_number') required this.plateNumber,
       required this.color});
 
   @override
-  final String brand;
+  final String? brand;
   @override
-  final String model;
+  final String? model;
   @override
-  final String plate_number;
+  @JsonKey(name: 'plate_number')
+  final String? plateNumber;
   @override
-  final String color;
+  final String? color;
 
   @override
   String toString() {
-    return 'AddCarRequest(brand: $brand, model: $model, plate_number: $plate_number, color: $color)';
+    return 'AddCarRequest(brand: $brand, model: $model, plateNumber: $plateNumber, color: $color)';
   }
 
   @override
@@ -153,15 +163,15 @@ class _$AddCarRequestImpl implements _AddCarRequest {
             other is _$AddCarRequestImpl &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.model, model) || other.model == model) &&
-            (identical(other.plate_number, plate_number) ||
-                other.plate_number == plate_number) &&
+            (identical(other.plateNumber, plateNumber) ||
+                other.plateNumber == plateNumber) &&
             (identical(other.color, color) || other.color == color));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, brand, model, plate_number, color);
+      Object.hash(runtimeType, brand, model, plateNumber, color);
 
   @JsonKey(ignore: true)
   @override
@@ -179,19 +189,20 @@ class _$AddCarRequestImpl implements _AddCarRequest {
 
 abstract class _AddCarRequest implements AddCarRequest {
   const factory _AddCarRequest(
-      {required final String brand,
-      required final String model,
-      required final String plate_number,
-      required final String color}) = _$AddCarRequestImpl;
+      {required final String? brand,
+      required final String? model,
+      @JsonKey(name: 'plate_number') required final String? plateNumber,
+      required final String? color}) = _$AddCarRequestImpl;
 
   @override
-  String get brand;
+  String? get brand;
   @override
-  String get model;
+  String? get model;
   @override
-  String get plate_number;
+  @JsonKey(name: 'plate_number')
+  String? get plateNumber;
   @override
-  String get color;
+  String? get color;
   @override
   @JsonKey(ignore: true)
   _$$AddCarRequestImplCopyWith<_$AddCarRequestImpl> get copyWith =>

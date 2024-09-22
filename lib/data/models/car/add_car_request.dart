@@ -5,9 +5,9 @@ part 'add_car_request.g.dart';
 @Freezed(toJson: true, fromJson: false)
 class AddCarRequest with _$AddCarRequest {
   const factory AddCarRequest({
-    required String brand,
-    required String model,
-    required String plate_number,
-    required String color,
+    required String? brand,
+    required String? model,
+    @JsonKey(name: 'plate_number') required String? plateNumber,
+    required String? color,
   }) = _AddCarRequest;
 }

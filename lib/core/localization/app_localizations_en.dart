@@ -66,4 +66,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get haveAcc => 'Already have an account ?';
+
+  @override
+  String get providerCar => 'Select Provider';
+
+  @override
+  String get plateCar => 'Please Enter Plate car';
+
+  @override
+  String get colorCar => 'Please Enter color car';
+
+  @override
+  String get modelCar => 'Please Enter model car';
+
+  @override
+  String get save => 'Save';
 }

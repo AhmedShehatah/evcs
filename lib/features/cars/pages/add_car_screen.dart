@@ -31,8 +31,8 @@ class _AddCarScreenState extends State<AddCarScreen> {
   AutovalidateMode _autoValidateMode = AutovalidateMode.disabled;
   final _localization = DIManager.findDep<LocaleCubit>().appLocalizations;
 
-  final List<String> providers = [];
-  final List<String> plates = [];
+  // final List<String> providers = [];
+  // final List<String> plates = [];
 
   @override
   Widget build(BuildContext context) {
@@ -66,45 +66,28 @@ class _AddCarScreenState extends State<AddCarScreen> {
                   CustomFormField(
                     hasAboveTitle: false,
                     controller: carProviderController,
-                    hint: selectedProvider ?? 'Select Provider',
+                    hint: selectedProvider ?? _localization.providerCar,
                     // disabled: true,
-                    suffix: const Icon(Icons.keyboard_arrow_down),
-                  ),
-                  // ),
-                  const VerticalPadding(2),
-                  // InkWell(
-                  //   onTap: () => CustomBottomSheet.showBottomSheet(
-                  //     CustomDropdown(
-                  //       title: 'Select Plate',
-                  //       items: plates,
-                  //       onItemSelected: (selected) {
-                  //         setState(() {
-                  //           selectedPlate = selected;
-                  //           carPlateController.text = selected;
-                  //         });
-                  //       },
-                  //     ),
-                  //   ),
-                  //   child:
-                  CustomFormField(
-                    hasAboveTitle: false,
-                    controller: carPlateController,
-                    hint: selectedPlate ?? 'Select Plate',
-                    // disabled: true,
-                    suffix: const Icon(Icons.keyboard_arrow_down),
+                    // suffix: const Icon(Icons.keyboard_arrow_down),
                   ),
                   // ),
                   const VerticalPadding(1),
                   CustomFormField(
                     hasAboveTitle: false,
+                    controller: carPlateController,
+                    hint: selectedPlate ?? _localization.plateCar,
+                  ),
+                  const VerticalPadding(1),
+                  CustomFormField(
+                    hasAboveTitle: false,
                     controller: carColorController,
-                    hint: 'Please Enter color car',
+                    hint: _localization.colorCar,
                   ),
                   const VerticalPadding(1),
                   CustomFormField(
                     hasAboveTitle: false,
                     controller: carModelController,
-                    hint: 'Please Enter model car',
+                    hint: _localization.modelCar,
                   ),
                   const VerticalPadding(8),
                   AppDefaultButton(
@@ -116,12 +99,12 @@ class _AddCarScreenState extends State<AddCarScreen> {
                         DIManager.findDep<AddCarCubit>().addCar(AddCarRequest(
                           brand: carProviderController.text,
                           model: carModelController.text,
-                          plate_number: carPlateController.text,
+                          plateNumber: carPlateController.text,
                           color: carColorController.text,
                         ));
                       }
                     },
-                    title: 'Save',
+                    title: _localization.save,
                   ),
                 ],
               ),

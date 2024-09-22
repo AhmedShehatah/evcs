@@ -10,6 +10,6 @@ Map<String, dynamic> _$$AddCarRequestImplToJson(_$AddCarRequestImpl instance) =>
     <String, dynamic>{
       'brand': instance.brand,
       'model': instance.model,
-      'plate_number': instance.plate_number,
+      'plate_number': instance.plateNumber,
       'color': instance.color,
     };

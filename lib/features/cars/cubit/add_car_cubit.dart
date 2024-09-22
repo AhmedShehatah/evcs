@@ -18,11 +18,13 @@ class AddCarCubit extends Cubit<AddCarState> {
     DIManager.findAC().showLoading();
     _carRepo.addCar(request).then((result) {
       DIManager.findAC().hideLoading();
+      print("test${result.toString()}");
       if (result.hasDataOnly) {
         CustomSnackbar.showSnackbar("Done Successfully");
         emit(state.copyWith(addCarState: const BaseSuccessState()));
         DIManager.findNavigator().offAll(GarageScreen.routeName);
       } else {
+        print("Failed${result.error}");
         CustomSnackbar.showErrorSnackbar(result.error!);
         emit(state.copyWith(addCarState: BaseFailState(error: result.error!)));
       }
