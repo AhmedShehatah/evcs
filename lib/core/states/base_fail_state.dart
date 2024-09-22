@@ -7,5 +7,5 @@ class BaseFailState extends BaseState {
   final BaseError? error;
   final VoidCallback? callback;
 
-  const BaseFailState(this.error, {this.callback});
+  const BaseFailState({this.callback, this.error});
 }

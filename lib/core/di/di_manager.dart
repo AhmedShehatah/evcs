@@ -1,5 +1,14 @@
 // ignore_for_file: unused_element
 
+import 'dart:io';
+
+import 'package:evcs/core/localization/app_localizations.dart';
+import 'package:evcs/core/localization/cubit/locale_cubit.dart';
+import 'package:evcs/data/repositories/auth/auth_repo.dart';
+import 'package:evcs/data/sources/auth/auth_remote_data_source.dart';
+import 'package:evcs/features/auth/cubit/auth_cubit.dart';
+import 'package:evcs/features/home/cubit/home_cubit.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -20,6 +29,30 @@ class DIManager {
     _injectDep(ApplicationCubit());
     _injectDep(AppNavigator());
     _injectDep(AppColorsController());
+    _initLocalizations();
+
+    // -------------- remote data sources ------------------
+    _injectDep(AuthRemoteDataSource());
+
+    // ------------------- repositories -------------------
+    _injectDep<IAuthRepo>(AuthRepo(findDep()));
+
+    /// ------------------ blocs ----------------
+    _injectDep(HomeCubit());
+
+    _injectDep(AuthCubit(findDep()));
+  }
+
+  static _initLocalizations() {
+    final deviceLocale = Locale(Platform.localeName.split('_').first);
+    // ignore: unused_local_variable
+    final locale = AppLocalizations.supportedLocales.firstWhere(
+      (element) => element.languageCode == deviceLocale.languageCode,
+      orElse: () => AppLocalizations.supportedLocales.first,
+    );
+    // sl.registerSingleton(
+    //     LocaleCubit(locale: kDebugMode ? const Locale('ar') : locale));
+    _injectDep(LocaleCubit(locale: const Locale("en")));
   }
 
   static T findDep<T extends Object>() {

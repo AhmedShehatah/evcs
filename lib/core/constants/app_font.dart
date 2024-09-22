@@ -15,7 +15,7 @@ class AppFont {
         bodyMedium: AppStyle.defaultStyle,
       ));
 
-  static TextStyle get textStyle => GoogleFonts.montserrat();
+  static TextStyle get textStyle => GoogleFonts.cairo();
 }
 
 class AppFontSize {

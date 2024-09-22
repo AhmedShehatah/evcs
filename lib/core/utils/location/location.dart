@@ -1,13 +1,14 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 /// Determine the current position of the device.
 ///
 /// When the location services are not enabled or permissions
 /// are denied the `Future` will return an error.
 class AppLocation {
-  Future<double> determinePosition() async {
+  Future<LatLng> determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -42,11 +43,6 @@ class AppLocation {
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
     final result = await Geolocator.getCurrentPosition();
-    return Future.value(Geolocator.distanceBetween(
-      25.105090,
-      55.199490,
-      result.latitude,
-      result.longitude,
-    ));
+    return LatLng(result.latitude, result.longitude);
   }
 }

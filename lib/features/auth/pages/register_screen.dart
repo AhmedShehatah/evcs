@@ -3,9 +3,13 @@ import 'package:evcs/core/constants/dimens.dart';
 import 'package:evcs/core/design/buttons/app_default_button.dart';
 import 'package:evcs/core/design/formfields/custom_form_field.dart';
 import 'package:evcs/core/di/di_manager.dart';
+import 'package:evcs/core/localization/cubit/locale_cubit.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
 import 'package:evcs/core/validators/email_validator.dart';
 import 'package:evcs/core/validators/min_length_validator.dart';
+import 'package:evcs/core/validators/required_validator.dart';
+import 'package:evcs/data/models/auth/sign_up_request/sign_up_request.dart';
+import 'package:evcs/features/auth/cubit/auth_cubit.dart';
 import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/auth/widgets/auth_title.dart';
 import 'package:evcs/features/auth/widgets/or_widget.dart';
@@ -22,10 +26,13 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
   final passwordController = TextEditingController();
   final phoneNumberController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   AutovalidateMode _autoValidateMode = AutovalidateMode.disabled;
+  final _localization = DIManager.findDep<LocaleCubit>().appLocalizations;
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +50,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const VerticalPadding(10),
-                  const AuthTitle(title: 'sign up'),
+                  AuthTitle(title: _localization.signUp),
                   const VerticalPadding(10),
                   CustomFormField(
                     hasAboveTitle: true,
+                    controller: firstNameController,
+                    hint: _localization.enterFirstName,
+                    iconPath: CustomIcons.userIcon,
+                    title: _localization.firstName,
+                    textInputType: TextInputType.text,
+                    validator: RequiredValidator(),
+                  ),
+                  const VerticalPadding(5),
+                  CustomFormField(
+                    hasAboveTitle: true,
+                    controller: lastNameController,
+                    hint: _localization.enterLastName,
+                    iconPath: CustomIcons.userIcon,
+                    title: _localization.lastName,
+                    textInputType: TextInputType.text,
+                    validator: RequiredValidator(),
+                  ),
+                  const VerticalPadding(5),
+                  CustomFormField(
+                    hasAboveTitle: true,
                     controller: emailController,
-                    hint: 'Enter Your Email Address',
+                    hint: _localization.enterEmail,
                     iconPath: CustomIcons.emailIcon,
-                    title: 'E-mail Address',
+                    title: _localization.email,
                     textInputType: TextInputType.emailAddress,
                     validator: EmailValidator(),
                   ),
@@ -58,9 +85,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   CustomFormField(
                     hasAboveTitle: true,
                     controller: phoneNumberController,
-                    hint: 'Enter Your Phone Number',
+                    hint: _localization.enterPhone,
                     iconPath: CustomIcons.userIcon,
-                    title: 'Phone Number',
+                    title: _localization.phoneNum,
                     textInputType: TextInputType.phone,
                   ),
                   const VerticalPadding(5),
@@ -68,10 +95,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     hasAboveTitle: true,
                     controller: passwordController,
                     isSecure: true,
-                    hint: 'Enter Your Password',
+                    hint: _localization.enterPassword,
                     iconPath: CustomIcons.passowrdIcon,
                     validator: MinLengthValidator(minLength: 8),
-                    title: 'Password',
+                    title: _localization.password,
                   ),
                   const VerticalPadding(5),
                   AppDefaultButton(
@@ -79,20 +106,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       setState(() {
                         _autoValidateMode = AutovalidateMode.onUserInteraction;
                       });
-                      formKey.currentState!.validate();
+                      if (formKey.currentState?.validate() ?? false) {
+                        DIManager.findDep<AuthCubit>().signUp(SignUpRequest(
+                            email: emailController.text,
+                            password: passwordController.text,
+                            phone: phoneNumberController.text,
+                            firstName: firstNameController.text,
+                            lastName: lastNameController.text));
+                      }
                     },
-                    title: 'Sign Up',
+                    title: _localization.signUp,
                     iconPath: CustomIcons.pinInRectIcon,
                   ),
                   const VerticalPadding(5),
-                  const OrWidget(),
+                  OrWidget(),
                   const VerticalPadding(3),
                   SwitchAuth(
                     onPress: () {
                       DIManager.findNavigator().offAll(LoginScreen.routeName);
                     },
-                    title: 'Sign In',
-                    desc: "Already have an account?",
+                    title: _localization.signIn,
+                    desc: _localization.haveAcc,
                   ),
                   const VerticalPadding(10),
                 ],

@@ -1,9 +1,31 @@
+import 'package:evcs/core/states/base_init_state.dart';
+import 'package:evcs/core/states/base_states.dart';
+
 class ApplicationState {
-  ApplicationState();
+  BaseState? loadingState;
+  bool isVisible;
+  String screenName;
 
-  factory ApplicationState.initialState() => ApplicationState();
+  ApplicationState({
+    this.loadingState,
+    this.isVisible = false,
+    this.screenName = '/',
+  });
+  factory ApplicationState.initialState() => ApplicationState(
+        loadingState: const BaseInitState(),
+        isVisible: false,
+        screenName: '/',
+      );
 
-  ApplicationState copyWith() {
-    return ApplicationState();
+  ApplicationState copyWith({
+    BaseState? loadingState,
+    bool? isVisible,
+    String? screenName,
+  }) {
+    return ApplicationState(
+      loadingState: loadingState ?? this.loadingState,
+      isVisible: isVisible ?? this.isVisible,
+      screenName: screenName ?? this.screenName,
+    );
   }
 }
