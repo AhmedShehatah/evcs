@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AddCarRequest {
   String get brand => throw _privateConstructorUsedError;
   String get model => throw _privateConstructorUsedError;
-  String get plateNumber => throw _privateConstructorUsedError;
+  String get plate_number => throw _privateConstructorUsedError;
   String get color => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +33,7 @@ abstract class $AddCarRequestCopyWith<$Res> {
           AddCarRequest value, $Res Function(AddCarRequest) then) =
       _$AddCarRequestCopyWithImpl<$Res, AddCarRequest>;
   @useResult
-  $Res call({String brand, String model, String plateNumber, String color});
+  $Res call({String brand, String model, String plate_number, String color});
 }
 
 /// @nodoc
@@ -51,7 +51,7 @@ class _$AddCarRequestCopyWithImpl<$Res, $Val extends AddCarRequest>
   $Res call({
     Object? brand = null,
     Object? model = null,
-    Object? plateNumber = null,
+    Object? plate_number = null,
     Object? color = null,
   }) {
     return _then(_value.copyWith(
@@ -63,9 +63,9 @@ class _$AddCarRequestCopyWithImpl<$Res, $Val extends AddCarRequest>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as String,
-      plateNumber: null == plateNumber
-          ? _value.plateNumber
-          : plateNumber // ignore: cast_nullable_to_non_nullable
+      plate_number: null == plate_number
+          ? _value.plate_number
+          : plate_number // ignore: cast_nullable_to_non_nullable
               as String,
       color: null == color
           ? _value.color
@@ -83,7 +83,7 @@ abstract class _$$AddCarRequestImplCopyWith<$Res>
       __$$AddCarRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String brand, String model, String plateNumber, String color});
+  $Res call({String brand, String model, String plate_number, String color});
 }
 
 /// @nodoc
@@ -99,7 +99,7 @@ class __$$AddCarRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? brand = null,
     Object? model = null,
-    Object? plateNumber = null,
+    Object? plate_number = null,
     Object? color = null,
   }) {
     return _then(_$AddCarRequestImpl(
@@ -111,9 +111,9 @@ class __$$AddCarRequestImplCopyWithImpl<$Res>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as String,
-      plateNumber: null == plateNumber
-          ? _value.plateNumber
-          : plateNumber // ignore: cast_nullable_to_non_nullable
+      plate_number: null == plate_number
+          ? _value.plate_number
+          : plate_number // ignore: cast_nullable_to_non_nullable
               as String,
       color: null == color
           ? _value.color
@@ -129,7 +129,7 @@ class _$AddCarRequestImpl implements _AddCarRequest {
   const _$AddCarRequestImpl(
       {required this.brand,
       required this.model,
-      required this.plateNumber,
+      required this.plate_number,
       required this.color});
 
   @override
@@ -137,13 +137,13 @@ class _$AddCarRequestImpl implements _AddCarRequest {
   @override
   final String model;
   @override
-  final String plateNumber;
+  final String plate_number;
   @override
   final String color;
 
   @override
   String toString() {
-    return 'AddCarRequest(brand: $brand, model: $model, plateNumber: $plateNumber, color: $color)';
+    return 'AddCarRequest(brand: $brand, model: $model, plate_number: $plate_number, color: $color)';
   }
 
   @override
@@ -153,15 +153,15 @@ class _$AddCarRequestImpl implements _AddCarRequest {
             other is _$AddCarRequestImpl &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.model, model) || other.model == model) &&
-            (identical(other.plateNumber, plateNumber) ||
-                other.plateNumber == plateNumber) &&
+            (identical(other.plate_number, plate_number) ||
+                other.plate_number == plate_number) &&
             (identical(other.color, color) || other.color == color));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, brand, model, plateNumber, color);
+      Object.hash(runtimeType, brand, model, plate_number, color);
 
   @JsonKey(ignore: true)
   @override
@@ -181,7 +181,7 @@ abstract class _AddCarRequest implements AddCarRequest {
   const factory _AddCarRequest(
       {required final String brand,
       required final String model,
-      required final String plateNumber,
+      required final String plate_number,
       required final String color}) = _$AddCarRequestImpl;
 
   @override
@@ -189,7 +189,7 @@ abstract class _AddCarRequest implements AddCarRequest {
   @override
   String get model;
   @override
-  String get plateNumber;
+  String get plate_number;
   @override
   String get color;
   @override

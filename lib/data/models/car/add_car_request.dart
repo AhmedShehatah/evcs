@@ -7,7 +7,7 @@ class AddCarRequest with _$AddCarRequest {
   const factory AddCarRequest({
     required String brand,
     required String model,
-    required String plateNumber,
+    required String plate_number,
     required String color,
   }) = _AddCarRequest;
 }
