@@ -3,6 +3,7 @@
 import 'package:evcs/core/design/root/page/root_screen.dart';
 import 'package:evcs/core/localization/app_localizations.dart';
 import 'package:evcs/core/localization/cubit/locale_cubit.dart';
+import 'package:evcs/features/profile/profile_screen.dart';
 import 'package:evcs/features/splash/splash_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -92,7 +93,7 @@ class _AppState extends State<App> {
                 localizationsDelegates: const [
                   ...AppLocalizations.localizationsDelegates
                 ],
-                initialRoute: SplashScreen.routeName,
+                initialRoute: ProfileScreen.routeName,
               );
             },
           );

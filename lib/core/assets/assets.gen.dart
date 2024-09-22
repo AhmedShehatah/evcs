@@ -35,6 +35,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/man.png
+  AssetGenImage get man => const AssetGenImage('assets/images/man.png');
+
   /// File path: assets/images/onboarding.png
   AssetGenImage get onboarding =>
       const AssetGenImage('assets/images/onboarding.png');
@@ -48,7 +51,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values =>
-      [carPlaceholder, greyAdd, logo, onboarding, powerPlugin, visa];
+      [carPlaceholder, greyAdd, logo, man, onboarding, powerPlugin, visa];
 }
 
 class Assets {
