@@ -22,5 +22,10 @@
   "enterLastName":"Enter Your Last Name",
   "phoneNum":"Phone Number",
   "enterPhone":"Enter Your Phone Number",
-  "haveAcc":"Already have an account ?"
+  "haveAcc":"Already have an account ?",
+  "providerCar":"Select Provider",
+  "plateCar":"Please Enter Plate car",
+  "colorCar":"Please Enter color car",
+  "modelCar":"Please Enter model car",
+  "save":"Save"
 }

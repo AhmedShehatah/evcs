@@ -87,6 +87,10 @@ class ApiProvider {
         DIManager.findDep<SharedPrefs>().setToken(response.data['token']);
       }
 
+      if (response.data['message'] != null) {
+        return Result(data: converter!(response.data));
+      }
+
       if (converterList != null) {
         return Result(data: converterList(response.data['data']));
       }
