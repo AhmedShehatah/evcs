@@ -22,7 +22,7 @@
   "enterLastName":"أدخل اسم العائلة",
   "phoneNum":"رقم الهاتف",
   "enterPhone":"أدخل رقم الهاتف",
-  "haveAcc":"تمتلك حساب ؟"
- 
-
+  "haveAcc":"تمتلك حساب ؟",
+  "fullName":"الاسم بالكامل",
+  "profile":"الحساب"
 }

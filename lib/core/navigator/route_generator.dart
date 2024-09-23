@@ -4,7 +4,7 @@ import 'package:evcs/features/auth/pages/register_screen.dart';
 import 'package:evcs/features/garage/page/garage_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 import 'package:evcs/features/onboarding/onboarding_screen.dart';
-import 'package:evcs/features/profile/profile_screen.dart';
+import 'package:evcs/features/profile/pages/profile_screen.dart';
 import 'package:evcs/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 

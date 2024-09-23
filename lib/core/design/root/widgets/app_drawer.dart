@@ -2,6 +2,7 @@ import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/shared_prefs/shared_prefs.dart';
 import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
+import 'package:evcs/features/profile/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../features/garage/page/garage_screen.dart';
@@ -55,6 +56,14 @@ class AppDrawer extends StatelessWidget {
               onTap: () {},
               leading: const Icon(Icons.favorite),
               title: const Text('Favourites'),
+            ),
+            ListTile(
+              onTap: () {
+                DIManager.findNavigator().pushNamed(ProfileScreen.routeName);
+                DIManager.findAC().closeDrawer();
+              },
+              leading: const Icon(Icons.person),
+              title: const Text('Profile'),
             ),
             ListTile(
               onTap: () {},

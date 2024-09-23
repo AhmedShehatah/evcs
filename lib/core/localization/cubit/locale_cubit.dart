@@ -1,3 +1,4 @@
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:evcs/core/localization/app_localizations.dart';
 import 'package:flutter/material.dart';

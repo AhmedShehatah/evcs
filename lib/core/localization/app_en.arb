@@ -22,5 +22,7 @@
   "enterLastName":"Enter Your Last Name",
   "phoneNum":"Phone Number",
   "enterPhone":"Enter Your Phone Number",
-  "haveAcc":"Already have an account ?"
+  "haveAcc":"Already have an account ?",
+  "fullName":"Full Name",
+  "profile":"PROFILE"
 }

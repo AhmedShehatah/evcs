@@ -66,4 +66,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get haveAcc => 'Already have an account ?';
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get profile => 'PROFILE';
 }

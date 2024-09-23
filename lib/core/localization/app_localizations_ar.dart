@@ -66,4 +66,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get haveAcc => 'تمتلك حساب ؟';
+
+  @override
+  String get fullName => 'الاسم بالكامل';
+
+  @override
+  String get profile => 'الحساب';
 }
