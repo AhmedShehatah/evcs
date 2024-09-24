@@ -1,6 +1,7 @@
 import 'package:evcs/core/constants/app_assets.dart';
 import 'package:evcs/core/constants/dimens.dart';
 import 'package:evcs/core/design/formfields/custom_form_field.dart';
+import 'package:evcs/core/design/loading_widgets/custom_loading.dart';
 import 'package:evcs/core/design/text/custom_text.dart';
 import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/localization/cubit/locale_cubit.dart';
@@ -17,7 +18,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileScreen extends StatefulWidget {
-  static const String routeName = '/profile-screen';
+  static const String routeName = '/profile';
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
@@ -53,10 +54,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   final profile = state.profileState;
 
                   if (profile is BaseLoadingState) {
-                    return const CircularProgressIndicator();
+                    return const CustomLoading();
                   }
                   if (profile is BaseFailState) {
-                    return const Text('Error');
+                    return const SizedBox();
                   }
                   if (profile is BaseSuccessState) {
                     final data = profile.data as ProfileModel;
