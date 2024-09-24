@@ -6,6 +6,7 @@ import 'package:evcs/features/garage/page/garage_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 import 'package:evcs/features/onboarding/onboarding_screen.dart';
 import 'package:evcs/features/profile/pages/profile_screen.dart';
+import 'package:evcs/features/plans/pages/plans_screen.dart';
 import 'package:evcs/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +54,8 @@ class RouteGenerator {
       case ProfileScreen.routeName:
         return const ProfileScreen();
 
+      case PlansScreen.routeName:
+        return PlansScreen();
       case AddCarScreen.routeName:
         return const AddCarScreen();
       default:

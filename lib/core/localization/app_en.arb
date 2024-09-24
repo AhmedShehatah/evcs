@@ -23,9 +23,19 @@
   "phoneNum":"Phone Number",
   "enterPhone":"Enter Your Phone Number",
   "haveAcc":"Already have an account ?",
+<<<<<<< HEAD
   "fullName":"Full Name",
   "profile":"PROFILE",
 
+=======
+  "choosePlan":"Choose Your Plan",
+  "upgradeOrDowngrade":"Downgrade or Upgrade at any time!",
+  "terms":"By selecting this package, you agree to our terms and conditions, including applicable fees and usage policies.",
+  "charges":"Charges",
+  "recommended":"Recommended",
+  "purchase":"Purchase",
+  "error":"Something went wrong",
+>>>>>>> dev
   "providerCar":"Select Provider",
   "plateCar":"Please Enter Plate car",
   "colorCar":"Please Enter color car",

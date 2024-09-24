@@ -3,6 +3,7 @@ import 'package:evcs/core/shared_prefs/shared_prefs.dart';
 import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 import 'package:evcs/features/profile/pages/profile_screen.dart';
+import 'package:evcs/features/plans/pages/plans_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../features/garage/page/garage_screen.dart';
@@ -77,6 +78,15 @@ class AppDrawer extends StatelessWidget {
               },
               leading: const Icon(Icons.login),
               title: const Text('Log Out'),
+            ),
+            ListTile(
+              onTap: () {
+                // DIManager.findDep<SharedPrefs>().logOut();
+                DIManager.findNavigator().pushNamed(PlansScreen.routeName);
+                DIManager.findAC().closeDrawer();
+              },
+              leading: const Icon(Icons.security_sharp),
+              title: const Text('Plans'),
             ),
             const Spacer(),
             DefaultTextStyle(
