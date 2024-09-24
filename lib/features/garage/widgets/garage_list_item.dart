@@ -6,11 +6,13 @@ import 'package:evcs/core/utils/screen_utils/device_utils.dart';
 import 'package:evcs/core/utils/ui/widgets/images/custom_image.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/horizontal_padding.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
+import 'package:evcs/data/models/garage/garage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class GarageListItem extends StatelessWidget {
-  const GarageListItem({super.key});
+  final Garage car;
+  const GarageListItem({super.key, required this.car});
 
   @override
   Widget build(BuildContext context) {
@@ -53,15 +55,20 @@ class GarageListItem extends StatelessWidget {
   }
 
   Widget _buildCarInfo() {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
       children: [
-        Text3Title('Tesla Model A'),
-        Text2Title('Red'),
-        VerticalPadding(3),
-        Text3Title("ABC 123"),
+        Row(
+          children: [
+            Text3Title('${car.brand} - '),
+            Text3Title(car.model),
+          ],
+        ),
+        Text2Title(car.color),
+        const VerticalPadding(3),
+        Text3Title(car.plateNumber),
       ],
     );
   }
