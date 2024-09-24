@@ -230,6 +230,36 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'الحساب'**
   String get profile;
+
+  /// No description provided for @providerCar.
+  ///
+  /// In ar, this message translates to:
+  /// **'اختر الماركة'**
+  String get providerCar;
+
+  /// No description provided for @plateCar.
+  ///
+  /// In ar, this message translates to:
+  /// **'الرجاء إدخال رقم لوحة السيارة'**
+  String get plateCar;
+
+  /// No description provided for @colorCar.
+  ///
+  /// In ar, this message translates to:
+  /// **'الرجاء إدخال لون السيارة'**
+  String get colorCar;
+
+  /// No description provided for @modelCar.
+  ///
+  /// In ar, this message translates to:
+  /// **'الرجاء إدخال موديل السيارة'**
+  String get modelCar;
+
+  /// No description provided for @save.
+  ///
+  /// In ar, this message translates to:
+  /// **'حفظ'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

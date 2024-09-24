@@ -5,10 +5,14 @@ import 'dart:io';
 import 'package:evcs/core/localization/app_localizations.dart';
 import 'package:evcs/core/localization/cubit/locale_cubit.dart';
 import 'package:evcs/data/repositories/auth/auth_repo.dart';
+import 'package:evcs/data/repositories/car/car_repo.dart';
 import 'package:evcs/data/repositories/profile/profile_repo.dart';
 import 'package:evcs/data/sources/auth/auth_remote_data_source.dart';
+import 'package:evcs/data/sources/car/car_remote_data_source.dart';
 import 'package:evcs/data/sources/profile/profile_remote_data_source.dart';
+
 import 'package:evcs/features/auth/cubit/auth_cubit.dart';
+import 'package:evcs/features/cars/cubit/add_car_cubit.dart';
 import 'package:evcs/features/home/cubit/home_cubit.dart';
 import 'package:evcs/features/profile/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
@@ -40,11 +44,17 @@ class DIManager {
     // ------------------- repositories -------------------
     _injectDep<IAuthRepo>(AuthRepo(findDep()));
     _injectDep<IProfileRepo>(ProfileRepo(findDep()));
+    _injectDep(CarRemoteDataSource());
+
+    // ------------------- repositories -------------------
+    _injectDep<IAuthRepo>(AuthRepo(findDep()));
+    _injectDep<ICarRepo>(CarRepo(findDep()));
 
     /// ------------------ blocs ----------------
     _injectDep(HomeCubit());
     _injectDep(ProfileCubit(findDep()));
     _injectDep(AuthCubit(findDep()));
+    _injectDep(AddCarCubit(findDep()));
   }
 
   static _initLocalizations() {

@@ -24,5 +24,11 @@
   "enterPhone":"Enter Your Phone Number",
   "haveAcc":"Already have an account ?",
   "fullName":"Full Name",
-  "profile":"PROFILE"
+  "profile":"PROFILE",
+
+  "providerCar":"Select Provider",
+  "plateCar":"Please Enter Plate car",
+  "colorCar":"Please Enter color car",
+  "modelCar":"Please Enter model car",
+  "save":"Save"
 }
