@@ -81,4 +81,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get save => 'حفظ';
+
+  @override
+  String get choosePlan => 'أختر خطتك';
+
+  @override
+  String get upgradeOrDowngrade => 'يمكنك تعديل خطتك بالترقية أو التخفيض في أي وقت يناسبك';
+
+  @override
+  String get terms => 'من خلال اختيارك لهذه الباقة، فإنك تقر بموافقتك على الشروط والأحكام الخاصة بنا، بما في ذلك الرسوم المطبقة وسياسات الاستخدام.';
+
+  @override
+  String get charges => 'شحنات';
+
+  @override
+  String get recommended => 'موصى به';
+
+  @override
+  String get purchase => 'شراء';
+
+  @override
+  String get error => 'لقد حدث خطأ ما';
 }

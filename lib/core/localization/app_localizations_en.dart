@@ -81,4 +81,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get save => 'Save';
+
+  @override
+  String get choosePlan => 'Choose Your Plan';
+
+  @override
+  String get upgradeOrDowngrade => 'Downgrade or Upgrade at any time!';
+
+  @override
+  String get terms => 'By selecting this package, you agree to our terms and conditions, including applicable fees and usage policies.';
+
+  @override
+  String get charges => 'Charges';
+
+  @override
+  String get recommended => 'Recommended';
+
+  @override
+  String get purchase => 'Purchase';
+
+  @override
+  String get error => 'Something went wrong';
 }

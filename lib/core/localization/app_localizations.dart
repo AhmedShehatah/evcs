@@ -248,6 +248,48 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'حفظ'**
   String get save;
+
+  /// No description provided for @choosePlan.
+  ///
+  /// In ar, this message translates to:
+  /// **'أختر خطتك'**
+  String get choosePlan;
+
+  /// No description provided for @upgradeOrDowngrade.
+  ///
+  /// In ar, this message translates to:
+  /// **'يمكنك تعديل خطتك بالترقية أو التخفيض في أي وقت يناسبك'**
+  String get upgradeOrDowngrade;
+
+  /// No description provided for @terms.
+  ///
+  /// In ar, this message translates to:
+  /// **'من خلال اختيارك لهذه الباقة، فإنك تقر بموافقتك على الشروط والأحكام الخاصة بنا، بما في ذلك الرسوم المطبقة وسياسات الاستخدام.'**
+  String get terms;
+
+  /// No description provided for @charges.
+  ///
+  /// In ar, this message translates to:
+  /// **'شحنات'**
+  String get charges;
+
+  /// No description provided for @recommended.
+  ///
+  /// In ar, this message translates to:
+  /// **'موصى به'**
+  String get recommended;
+
+  /// No description provided for @purchase.
+  ///
+  /// In ar, this message translates to:
+  /// **'شراء'**
+  String get purchase;
+
+  /// No description provided for @error.
+  ///
+  /// In ar, this message translates to:
+  /// **'لقد حدث خطأ ما'**
+  String get error;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
