@@ -32,10 +32,18 @@ class AppColorsController {
   Color priorityColor = const Color(0xFF8DCA26);
 
   Color darkGreyTextColor = const Color(0xFF484747);
+  Color darkGreyTextColor2 = const Color(0xFF7D7D7D);
+  Color greyTextColor2 = const Color(0xFF838383);
+  Color transparent = const Color.fromARGB(0, 0, 0, 0);
 
   Color notSelectedGrey = const Color(0xFF7A8FA6);
+  Color greyCardBackgroundColor = const Color(0xFFE2E2E2);
   Color white = Colors.white;
   Color red = const Color(0xFFE42424);
   Color formFieldBackgroundColor = const Color(0xFFE9E9E9);
   Color defaultGreyBackgroundColor = const Color(0xFFE9E9E9);
+  LinearGradient cardGradient = const LinearGradient(
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight,
+      colors: [Color(0xFF66AD28), Color(0xFF2A4710)]);
 }
