@@ -22,5 +22,12 @@
   "enterLastName":"Enter Your Last Name",
   "phoneNum":"Phone Number",
   "enterPhone":"Enter Your Phone Number",
-  "haveAcc":"Already have an account ?"
+  "haveAcc":"Already have an account ?",
+  "choosePlan":"Choose Your Plan",
+  "upgradeOrDowngrade":"Downgrade or Upgrade at any time!",
+  "terms":"By selecting this package, you agree to our terms and conditions, including applicable fees and usage policies.",
+  "charges":"Charges",
+  "recommended":"Recommended",
+  "purchase":"Purchase",
+  "error":"Something went wrong"
 }
