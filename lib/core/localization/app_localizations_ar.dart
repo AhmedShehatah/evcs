@@ -68,6 +68,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get haveAcc => 'تمتلك حساب ؟';
 
   @override
+  String get providerCar => 'اختر الماركة';
+
+  @override
+  String get plateCar => 'الرجاء إدخال رقم لوحة السيارة';
+
+  @override
+  String get colorCar => 'الرجاء إدخال لون السيارة';
+
+  @override
+  String get modelCar => 'الرجاء إدخال موديل السيارة';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
   String get choosePlan => 'أختر خطتك';
 
   @override

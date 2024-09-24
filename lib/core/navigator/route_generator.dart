@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:evcs/features/auth/pages/login_screen.dart';
 import 'package:evcs/features/auth/pages/register_screen.dart';
+import 'package:evcs/features/cars/pages/add_car_screen.dart';
 import 'package:evcs/features/garage/page/garage_screen.dart';
 import 'package:evcs/features/home/pages/home_screen.dart';
 import 'package:evcs/features/onboarding/onboarding_screen.dart';
@@ -52,6 +53,8 @@ class RouteGenerator {
 
       case PlansScreen.routeName:
         return PlansScreen();
+      case AddCarScreen.routeName:
+        return const AddCarScreen();
       default:
         settings = RouteSettings(
             arguments: settings.arguments, name: DefaultRoute.routeName);

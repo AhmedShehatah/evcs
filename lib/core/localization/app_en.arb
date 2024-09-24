@@ -30,4 +30,9 @@
   "recommended":"Recommended",
   "purchase":"Purchase",
   "error":"Something went wrong"
+  "providerCar":"Select Provider",
+  "plateCar":"Please Enter Plate car",
+  "colorCar":"Please Enter color car",
+  "modelCar":"Please Enter model car",
+  "save":"Save"
 }
