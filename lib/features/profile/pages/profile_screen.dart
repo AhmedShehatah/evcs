@@ -58,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     return const CustomLoading();
                   }
                   if (profile is BaseFailState) {
-                    return const SizedBox();
+                    return const Text("error");
                   }
                   if (profile is BaseSuccessState) {
                     final data = profile.data as ProfileModel;
