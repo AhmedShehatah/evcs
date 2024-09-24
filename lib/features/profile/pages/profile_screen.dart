@@ -19,7 +19,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const String routeName = '/profile';
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -27,10 +27,11 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final formKey = GlobalKey<FormState>();
-  final nameController = TextEditingController();
   final AutovalidateMode _autoValidateMode = AutovalidateMode.disabled;
   final _localization = DIManager.findDep<LocaleCubit>().appLocalizations;
   final emailController = TextEditingController();
+  final nameController = TextEditingController();
+  final phoneController = TextEditingController();
 
   @override
   void initState() {
@@ -106,7 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           const VerticalPadding(3),
                           Text5Title(_localization.phoneNum),
                           CustomFormField(
-                            hint: '01025091652',
+                            hint: data.phone,
                             hasAboveTitle: false,
                             controller: nameController,
                           ),
