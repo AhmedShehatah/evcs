@@ -14,7 +14,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     _profileRepo.getProfile().then((result) {
       if (result.hasDataOnly) {
         CustomSnackbar.showSnackbar("Done Successfully");
-        emit(state.copyWith(profileState: const BaseSuccessState()));
+        emit(state.copyWith(profileState: BaseSuccessState(result.data!)));
       } else {
         CustomSnackbar.showErrorSnackbar(result.error!);
         emit(state.copyWith(profileState: BaseFailState(error: result.error!)));
