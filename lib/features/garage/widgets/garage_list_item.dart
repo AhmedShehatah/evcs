@@ -1,6 +1,6 @@
 import 'package:evcs/core/constants/app_assets.dart';
 import 'package:evcs/core/constants/dimens.dart';
-import 'package:evcs/core/design/text/custom_text.dart';
+import 'package:evcs/core/design/text/app_custom_text.dart';
 import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/utils/screen_utils/device_utils.dart';
 import 'package:evcs/core/utils/ui/widgets/images/custom_image.dart';
@@ -62,13 +62,26 @@ class GarageListItem extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text3Title('${car.brand} - '),
-            Text3Title(car.model),
+            CustomText.s13(
+              '${car.brand} - ',
+              color: DIManager.findCC().black,
+            ),
+            CustomText.s13(
+              car.model,
+              color: DIManager.findCC().black,
+            ),
           ],
         ),
-        Text2Title(car.color),
+        CustomText.s12(
+          car.color,
+          color: DIManager.findCC().greyTextColor,
+        ),
         const VerticalPadding(3),
-        Text3Title(car.plateNumber),
+        CustomText.s14(
+          car.plateNumber,
+          color: DIManager.findCC().defaultAppDarkColor,
+          bold: true,
+        ),
       ],
     );
   }

@@ -20,7 +20,7 @@ class GarageCubit extends Cubit<GarageState> {
       DIManager.findAC().hideLoading();
       print("Data from API: ${result.data}");
 
-      if (result.hasDataOnly) {
+      if (result.hasDataOnly && result.data != null) {
         print("Success: ${result.data}");
 
         emit(state.copyWith(garageState: BaseSuccessState(result.data)));
