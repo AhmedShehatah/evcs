@@ -13,4 +13,5 @@ class AppEndpoints {
   static const String signIn = "/signin";
   static const String plans = "/plans";
   static const String addCar = "/cars";
+  static const String subscribe = "/subscribe";
 }
