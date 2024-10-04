@@ -68,6 +68,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get haveAcc => 'تمتلك حساب ؟';
 
   @override
+  String get fullName => 'الاسم بالكامل';
+
+  @override
+  String get profile => 'الحساب';
+
+  @override
   String get providerCar => 'اختر الماركة';
 
   @override

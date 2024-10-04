@@ -16,4 +16,6 @@ class AppAssets {
   static String power_plugin = "assets/images/power_plugin.png";
   static String visa = "assets/images/visa.png";
   static String logo = "assets/images/logo.png";
+
+  static String man = "assets/images/man.png";
 }

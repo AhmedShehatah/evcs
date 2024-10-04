@@ -1,7 +1,6 @@
 import 'package:evcs/core/constants/app_style.dart';
 import 'package:evcs/core/di/di_manager.dart';
 import 'package:evcs/core/localization/cubit/locale_cubit.dart';
-import 'package:evcs/core/utils/localization/app_localizations.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/horizontal_padding.dart';
 import 'package:flutter/material.dart';
 

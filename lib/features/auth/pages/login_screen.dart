@@ -64,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     isSecure: true,
                     hint: _localization.enterPassword,
                     iconPath: CustomIcons.passowrdIcon,
-                    validator: MinLengthValidator(minLength: 8),
+                    validator: MinLengthValidator(minLength: 5),
                     title: _localization.password,
                   ),
                   const VerticalPadding(2),

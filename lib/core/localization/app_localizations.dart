@@ -219,6 +219,18 @@ abstract class AppLocalizations {
   /// **'تمتلك حساب ؟'**
   String get haveAcc;
 
+  /// No description provided for @fullName.
+  ///
+  /// In ar, this message translates to:
+  /// **'الاسم بالكامل'**
+  String get fullName;
+
+  /// No description provided for @profile.
+  ///
+  /// In ar, this message translates to:
+  /// **'الحساب'**
+  String get profile;
+
   /// No description provided for @providerCar.
   ///
   /// In ar, this message translates to:
