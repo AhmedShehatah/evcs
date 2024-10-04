@@ -10,6 +10,7 @@ import 'package:evcs/core/state/base_state.dart';
 import 'package:evcs/core/utils/ui/widgets/utils/vertical_padding.dart';
 import 'package:evcs/data/models/plan/plan.dart';
 import 'package:evcs/features/plans/cubit/plan_cubit.dart';
+import 'package:evcs/features/plans/cubit/plan_state.dart';
 import 'package:evcs/features/plans/widgets/plan_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,10 +43,12 @@ class _PlansScreenState extends State<PlansScreen> {
     return Scaffold(
       body: Padding(
         padding: Dimens.defaultPageHorizontalPadding,
-        child: BlocBuilder<PlanCubit, BaseState<List<Plan>>>(
+        child: BlocBuilder<PlanCubit, PlanState>(
           bloc: DIManager.findDep<PlanCubit>(),
           builder: (context, state) {
-            return state.maybeWhen(
+            var plans = state.getPlansState;
+            var subscribe = state.subscribeState;
+            return plans!.maybeWhen(
               success: (plans) {
                 return Column(
                   children: [
@@ -76,7 +79,13 @@ class _PlansScreenState extends State<PlansScreen> {
                     CustomText.s13(center: true, _localization.terms),
                     5.verticalSpace,
                     AppDefaultButton(
-                        onPress: () {}, title: _localization.purchase)
+                        isLoading: subscribe!.maybeMap(
+                            loading: (_) => true, orElse: () => false),
+                        onPress: () {
+                          DIManager.findDep<PlanCubit>()
+                              .subscribeToPlan(plans[selectedPlan.value].id);
+                        },
+                        title: _localization.purchase)
                   ],
                 );
               },
