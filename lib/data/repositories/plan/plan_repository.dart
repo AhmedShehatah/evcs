@@ -1,4 +1,5 @@
 import 'package:evcs/core/results/result.dart';
+import 'package:evcs/data/models/message.dart';
 import 'package:evcs/data/models/plan/plan.dart';
 import 'package:evcs/data/sources/plan/plan_remote_data_source.dart';
 
@@ -10,8 +11,14 @@ class PlanRepository implements IPlanRepository {
   Future<Result<List<Plan>>> getPlans() async {
     return await _planRD.getPlans();
   }
+
+  @override
+  Future<Result<Message>> subscribeToPlan(int planId) {
+    return _planRD.subscribeToPlan(planId);
+  }
 }
 
 abstract class IPlanRepository {
   Future<Result<List<Plan>>> getPlans();
+  Future<Result<Message>> subscribeToPlan(int planId);
 }
