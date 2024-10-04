@@ -10,7 +10,7 @@ class CarRemoteDataSource {
     return await RemoteDataSource.request(
         converter: (model) => AddCarResponse.fromJson(model),
         method: HttpMethod.POST,
-        url: AppEndpoints.addCar,
+        url: AppEndpoints.Car,
         requiresToken: true,
         data: request.toJson());
   }
