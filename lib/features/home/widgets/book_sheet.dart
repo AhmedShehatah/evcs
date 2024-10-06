@@ -19,16 +19,16 @@ class BookSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: Dimens.bottomSheetInternalPadding,
-      child: BlocBuilder<OrderCubit, OrderState>(
-        bloc: DIManager.findDep<OrderCubit>(),
-        builder: (context, state) {
-          final orderState = state.addOrder;
-          return orderState!.maybeMap(
-            loading: (_) => Container(height: 200.h, child: CustomLoading()),
-            orElse: () {
-              return Column(
+    return BlocBuilder<OrderCubit, OrderState>(
+      bloc: DIManager.findDep<OrderCubit>(),
+      builder: (context, state) {
+        final orderState = state.addOrder;
+        return orderState!.maybeMap(
+          loading: (_) => Container(height: 200.h, child: CustomLoading()),
+          orElse: () {
+            return Padding(
+              padding: Dimens.bottomSheetInternalPadding,
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text3Title(
@@ -56,11 +56,11 @@ class BookSheet extends StatelessWidget {
                     title: 'Charge Now',
                   )
                 ],
-              );
-            },
-          );
-        },
-      ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }
