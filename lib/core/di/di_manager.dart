@@ -6,12 +6,12 @@ import 'package:evcs/core/localization/app_localizations.dart';
 import 'package:evcs/core/localization/cubit/locale_cubit.dart';
 import 'package:evcs/data/repositories/auth/auth_repo.dart';
 import 'package:evcs/data/repositories/car/car_repo.dart';
+import 'package:evcs/data/repositories/order/order_repo.dart';
 
 import 'package:evcs/data/repositories/profile/profile_repo.dart';
-
+import 'package:evcs/data/sources/order/order_remote_data_source.dart';
 
 import 'package:evcs/data/sources/profile/profile_remote_data_source.dart';
-
 
 import 'package:evcs/data/repositories/garage/gatage_repo.dart';
 import 'package:evcs/data/repositories/plan/plan_repository.dart';
@@ -24,11 +24,8 @@ import 'package:evcs/features/auth/cubit/auth_cubit.dart';
 import 'package:evcs/features/cars/cubit/add_car_cubit.dart';
 import 'package:evcs/features/garage/cubit/garage_cubit.dart';
 import 'package:evcs/features/home/cubit/home_cubit.dart';
+import 'package:evcs/features/order/cubit/order_cubit.dart';
 import 'package:evcs/features/profile/cubit/profile_cubit.dart';
-
-import 'package:evcs/data/repositories/plan/plan_repository.dart';
-
-import 'package:evcs/data/sources/plan/plan_remote_data_source.dart';
 
 import 'package:evcs/features/plans/cubit/plan_cubit.dart';
 import 'package:flutter/material.dart';
@@ -57,18 +54,18 @@ class DIManager {
     // -------------- remote data sources ------------------
     _injectDep(AuthRemoteDataSource());
     _injectDep(ProfileRemoteDataSource());
-    // ------------------- repositories -------------------
-    _injectDep<IAuthRepo>(AuthRepo(findDep()));
-    _injectDep<IProfileRepo>(ProfileRepo(findDep()));
     _injectDep(CarRemoteDataSource());
     _injectDep(PlanRemoteDataSource());
     _injectDep(GarageRemoteDataSource());
+    _injectDep(OrderRemoteDataSource());
 
     // ------------------- repositories -------------------
     _injectDep<IAuthRepo>(AuthRepo(findDep()));
+    _injectDep<IProfileRepo>(ProfileRepo(findDep()));
     _injectDep<ICarRepo>(CarRepo(findDep()));
     _injectDep<IPlanRepository>(PlanRepository(findDep()));
     _injectDep<IGarageRepo>(GarageRepo(findDep()));
+    _injectDep<IOrderRepo>(OrderRepo(findDep()));
 
     /// ------------------ blocs ----------------
     _injectDep(HomeCubit());
@@ -77,6 +74,7 @@ class DIManager {
     _injectDep(AddCarCubit(findDep()));
     _injectDep(PlanCubit(findDep()));
     _injectDep(GarageCubit(findDep()));
+    _injectDep(OrderCubit(findDep()));
   }
 
   static _initLocalizations() {
