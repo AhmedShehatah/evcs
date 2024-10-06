@@ -47,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: AppDefaultButton(
                     onPress: () {
                       CustomBottomSheet.showBottomSheet(const BookSheet());
+                      DIManager.findDep<HomeCubit>().onDone();
                     },
                     title:
                         DIManager.findDep<LocaleCubit>().appLocalizations.done),

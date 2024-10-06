@@ -9,7 +9,7 @@ import 'package:evcs/features/plans/cubit/plan_state.dart';
 
 class PlanCubit extends Cubit<PlanState> {
   PlanCubit(this._planRepository)
-      : super(const PlanState(
+      : super(PlanState(
             getPlansState: BaseState.initial(),
             subscribeState: BaseState.initial()));
   final IPlanRepository _planRepository;

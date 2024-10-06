@@ -3,7 +3,6 @@
 class AppEndpoints {
   AppEndpoints._();
 
-
   static const String BASE_URL = 'http://192.168.1.12:5000/api/v1';
 
   static const String Authorization = 'Authorization';
@@ -22,5 +21,5 @@ class AppEndpoints {
 
   static const String addCar = "/cars";
   static const String subscribe = "/subscribe";
-
+  static const String order = "/order";
 }
